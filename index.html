@@ -10,6 +10,15 @@
 <meta property="og:image" content="img/balcony-fondue-view-1600.webp">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#16241c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VacationRental","name":"Le Bristol A46 · Villars-sur-Ollon",
+ "description":"One-bedroom apartment with two balconies, two bathrooms and a heated indoor pool in the building, 500 m from the centre of Villars-sur-Ollon.",
+ "image":["img/balcony-fondue-view-1600.webp","img/living-room-1600.webp","img/ih-bedroom-1024.webp","img/ih-pool-1024.webp"],
+ "address":{"@type":"PostalAddress","streetAddress":"Avenue Centrale 164","addressLocality":"Villars-sur-Ollon","postalCode":"1884","addressCountry":"CH"},
+ "containsPlace":{"@type":"Accommodation","additionalType":"EntirePlace","occupancy":{"@type":"QuantitativeValue","value":4},"numberOfBedrooms":1,"numberOfBathroomsTotal":2,"floorSize":{"@type":"QuantitativeValue","value":55,"unitCode":"MTK"},
+   "amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Indoor pool","value":true},{"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true},{"@type":"LocationFeatureSpecification","name":"Balcony","value":true}]}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -112,6 +121,7 @@
   .gallery .i4{grid-column:span 4;grid-row:span 2}
   .gallery .i5{grid-column:span 4;grid-row:span 2}
   .gallery .i6{grid-column:span 4;grid-row:span 2}
+  .gallery .i7{grid-column:span 6;grid-row:span 3}
 
   /* lightbox */
   .lb{position:fixed;inset:0;z-index:100;background:rgba(8,12,10,.94);display:none;align-items:center;justify-content:center;padding:24px}
@@ -167,7 +177,7 @@
     .season{min-height:360px}
     .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
     .gallery .i1{grid-column:span 2;grid-row:span 2}
-    .gallery .i2,.gallery .i3,.gallery .i4,.gallery .i5,.gallery .i6{grid-column:span 1;grid-row:span 1}
+    .gallery .i2,.gallery .i3,.gallery .i4,.gallery .i5,.gallery .i6,.gallery .i7{grid-column:span 1;grid-row:span 1}
     .gallery .i6{grid-column:span 2}
     .spec div{grid-template-columns:1fr;gap:4px}
     .near{grid-template-columns:1fr}
@@ -186,23 +196,78 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}
   }
+
+  /* season toggle */
+  [data-season="summer"] [data-show="winter"],[data-season="winter"] [data-show="summer"]{display:none!important}
+  .toggle{display:inline-flex;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px;gap:2px}
+  .toggle button{all:unset;cursor:pointer;color:#fff;font:600 .8rem/1 var(--sans);letter-spacing:.06em;padding:9px 16px;border-radius:999px;display:flex;align-items:center;gap:7px;transition:background .25s,color .25s}
+  .toggle button svg{width:15px;height:15px}
+  .toggle button[aria-pressed="true"]{background:#fff;color:var(--pine)}
+  .toggle button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .hero .bg{position:absolute;inset:0;transition:opacity 1s ease}
+  .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-out forwards;transform-origin:60% 40%}
+  [data-season="summer"] .hero .bg.w,[data-season="winter"] .hero .bg.s{opacity:0}
+  [data-season] .hero .bg{display:block!important}
+
+  /* season guide */
+  .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .act{background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 40px -24px rgba(22,36,28,.3);display:flex;flex-direction:column}
+  .act img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .act div{padding:22px 24px 26px}
+  .act h3{font-size:1.5rem;margin:0 0 6px}
+  .act p{margin:0;color:var(--muted);font-size:.93rem}
+  .act .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:8px}
+  .videos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+  .video{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000;cursor:pointer}
+  .video img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s}
+  .video:hover img{opacity:1}
+  .video span{position:absolute;inset:auto 0 0 0;padding:16px 20px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.75));font-size:.9rem}
+  .video i{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;background:rgba(196,154,90,.95);border-radius:14px}
+  .video i::after{content:"";position:absolute;left:28px;top:14px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent var(--pine)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .credit{font-size:.75rem;color:var(--muted);margin-top:8px}
+  .credit a{color:inherit}
+  @media (max-width:900px){
+    .acts{grid-template-columns:1fr 1fr}
+    .videos{grid-template-columns:1fr}
+    .toggle button{padding:8px 12px}
+  }
+  @media (max-width:560px){
+    .acts{grid-template-columns:1fr}
+    .toggle button .lbl{display:none}
+  }
 </style>
 </head>
-<body>
+<body data-season="summer">
+<script>
+  (function(){var s=new URLSearchParams(location.search).get('season');
+    if(s!=='summer'&&s!=='winter'){try{s=localStorage.getItem('season')}catch(e){}}
+    if(s!=='summer'&&s!=='winter'){var m=new Date().getMonth();s=(m>=9||m<=3)?'winter':'summer'}
+    document.body.dataset.season=s})();
+</script>
 
 <nav class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="#top">Le Bristol<small>Villars</small></a>
-    <a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">Book your stay</a>
+    <div class="nav-right">
+      <div class="toggle" role="group" aria-label="Season">
+        <button type="button" data-set="summer" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="lbl">Summer</span></button>
+        <button type="button" data-set="winter" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4 7l16 10M20 7L4 17M9 3l3 3 3-3M9 21l3-3 3 3"/></svg><span class="lbl">Winter</span></button>
+      </div>
+      <a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">Book your stay</a>
+    </div>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <img src="img/balcony-fondue-view-1600.webp" srcset="img/balcony-fondue-view-800.webp 800w, img/balcony-fondue-view-1600.webp 1600w" sizes="100vw" alt="Fondue on the balcony with a panoramic view of the Alps above Villars" fetchpriority="high">
+  <div class="bg s"><img src="img/balcony-fondue-view-1600.webp" srcset="img/balcony-fondue-view-800.webp 800w, img/balcony-fondue-view-1600.webp 1600w" sizes="100vw" alt="Fondue on the balcony with a panoramic view of the Alps above Villars" fetchpriority="high"></div>
+  <div class="bg w"><img src="img/ih-view-winter-1024.webp" alt="Snow-covered balcony looking over Villars and the mountains in winter" loading="lazy"></div>
   <div class="wrap">
-    <p class="kicker">Villars-sur-Ollon · Swiss Alps</p>
+    <p class="kicker"><span data-show="summer">Villars-sur-Ollon · Summer in the Alps</span><span data-show="winter">Villars-sur-Ollon · Ski bus at the door</span></p>
     <h1>Your balcony <em>above</em> the Alps</h1>
-    <p class="lede">A bright one-bedroom apartment with two balconies, two bathrooms and a heated indoor pool, a short walk from the village centre.</p>
+    <p class="lede" data-show="summer">A bright one-bedroom apartment with two balconies, two bathrooms and a heated indoor pool. Walks, lakes and golf on the doorstep.</p>
+    <p class="lede" data-show="winter">A warm one-bedroom apartment with a ski room, a heated indoor pool and the free ski bus 20 m from the door.</p>
     <div class="ctas">
       <a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">Check dates &amp; book <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
       <a class="btn ghost" href="#parents">For school parents</a>
@@ -252,6 +317,7 @@
         <div class="occ reveal"><span class="n">iii.</span><h3>Arrivals</h3><p>Settle a new student in without a hotel bill.</p></div>
         <div class="occ reveal"><span class="n">iv.</span><h3>Graduation</h3><p>Celebrate on the balcony with the whole valley below.</p></div>
       </div>
+      <p class="reveal" style="opacity:.8;margin:-20px 0 32px"><a href="aiglon-beau-soleil-parents.html" style="color:var(--gold-soft)">Read our parents' guide: getting here, when to book →</a></p>
       <a class="btn reveal" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">See availability <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
   </section>
@@ -274,26 +340,46 @@
         <button class="i4" data-full="img/living-room-evening-1600.webp" aria-label="Open photo: evening light"><img src="img/living-room-evening-800.webp" alt="Living room in warm evening light" loading="lazy"></button>
         <button class="i5" data-full="img/fondue-closeup-1600.webp" aria-label="Open photo: fondue"><img src="img/fondue-closeup-800.webp" alt="Fondue on the balcony" loading="lazy"></button>
         <button class="i6" data-full="img/kitchenette-1600.webp" aria-label="Open photo: kitchenette"><img src="img/kitchenette-800.webp" alt="White kitchenette with two hot plates and fridge" loading="lazy"></button>
+        <button class="i4" data-full="img/ih-bedroom-1024.webp" aria-label="Open photo: bedroom"><img src="img/ih-bedroom-640.webp" alt="Twin bedroom with pine furniture" loading="lazy"></button>
+        <button class="i5" data-full="img/ih-bathroom-1024.webp" aria-label="Open photo: bathroom"><img src="img/ih-bathroom-640.webp" alt="Bathroom with bath and marble tiles" loading="lazy"></button>
+        <button class="i6" data-full="img/ih-pool-1024.webp" aria-label="Open photo: indoor pool"><img src="img/ih-pool-640.webp" alt="Heated indoor pool in the building" loading="lazy"></button>
+        <button class="i7" data-full="img/ih-terrace-summer-1024.webp" aria-label="Open photo: balcony table"><img src="img/ih-terrace-summer-640.webp" alt="Balcony table and chairs with mountain view" loading="lazy"></button>
+        <button class="i7" data-full="img/ih-building-snow-1024.webp" aria-label="Open photo: building in winter"><img src="img/ih-building-snow-640.webp" alt="Le Bristol with wooden balconies in the snow" loading="lazy"></button>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section style="padding-top:0" id="season">
     <div class="wrap">
-      <div class="reveal">
-        <p class="kicker">Every season</p>
-        <h2>Summer meadows, <em>winter pistes</em></h2>
+      <div class="reveal" data-show="winter">
+        <p class="kicker">Winter in Villars</p>
+        <h2>Ski bus at the door, <em>fondue</em> at night</h2>
       </div>
-      <div class="seasons">
-        <article class="season reveal">
-          <img src="img/balcony-fondue-view-800.webp" alt="Summer evening on the balcony" loading="lazy">
-          <div><h3>Summer</h3><p>Hiking and mountain-bike trails from the village, an 18-hole golf course 7 km away, the Lavey thermal baths and Lake Geneva below. Then dinner on the balcony as the light fades.</p></div>
-        </article>
-        <article class="season reveal">
-          <img src="img/building-winter-800.webp" alt="Le Bristol in winter snow" loading="lazy">
-          <div><h3>Winter</h3><p>The free ski bus stops 20 m from the door, and there's a ski room downstairs. Villars–Gryon–Diablerets has about 100 km of runs, ski schools from age 3 and an ice rink in the village.</p></div>
-        </article>
+      <div class="reveal" data-show="summer">
+        <p class="kicker">Summer in Villars</p>
+        <h2>Lakes, larch woods <em>&amp; long evenings</em></h2>
       </div>
+
+      <div class="acts" data-show="winter">
+        <article class="act reveal"><img src="img/ih-bretaye-pistes-640.webp" alt="Sunny pistes in the Villars–Gryon ski area" loading="lazy"><div><span class="tag">Ski</span><h3>About 100 km of pistes</h3><p>Villars–Gryon–Les Diablerets links wide blue and red runs with views to Mont Blanc. The free ski bus stops 20 m from the building.</p></div></article>
+        <article class="act reveal"><img src="img/ih-bretaye-lift-640.webp" alt="Chairlift above Col de Bretaye with the Dents du Midi behind" loading="lazy"><div><span class="tag">Getting up</span><h3>The train to Bretaye</h3><p>The little rack railway climbs from Villars station, 500 m from the flat, straight up to Col de Bretaye at the heart of the ski area.</p></div></article>
+        <article class="act reveal"><img src="img/ih-roc-dorsay-640.webp" alt="Roc d'Orsay gondola station in Villars" loading="lazy"><div><span class="tag">Getting up</span><h3>Roc d'Orsay gondola</h3><p>Or take the gondola from the village up to Roc d'Orsay. Lockers, ski hire and ski schools for children from age 3 are all close by.</p></div></article>
+        <article class="act reveal"><img src="img/ih-snow-trail-640.webp" alt="Footprints across fresh snow between fir trees" loading="lazy"><div><span class="tag">Not skiing?</span><h3>Winter walks &amp; snowshoes</h3><p>Groomed winter footpaths and snowshoe trails start from the village and from Bretaye. Sledging and an ice rink too.</p></div></article>
+        <article class="act reveal"><img src="img/ih-pool-640.webp" alt="Heated indoor pool in Le Bristol" loading="lazy"><div><span class="tag">Après-ski</span><h3>Pool downstairs</h3><p>Come back, drop the skis in the ski room and swim in the heated indoor pool in the building. Then fondue on the balcony.</p></div></article>
+        <article class="act reveal"><img src="img/ih-peaks-winter-640.webp" alt="Snowy peaks of the Vaud Alps" loading="lazy"><div><span class="tag">Day trip</span><h3>Glacier 3000</h3><p>About 40 minutes' drive via Les Diablerets: a cable car to the glacier, the Peak Walk suspension bridge and skiing at 3,000 m.</p></div></article>
+      </div>
+
+      <div class="acts" data-show="summer">
+        <article class="act reveal"><img src="img/ih-terrace-trees-640.webp" alt="Balcony looking over green larch woods in summer" loading="lazy"><div><span class="tag">Walk</span><h3>The Bretaye lakes</h3><p>Ride the little train from Villars station up to Col de Bretaye, then stroll round Lac de Bretaye and Lac Noir. Easy paths, mountain restaurants, big views.</p></div></article>
+        <article class="act reveal"><img src="img/ih-village-summer-640.webp" alt="Villars village and the Alps in summer" loading="lazy"><div><span class="tag">Walk</span><h3>Paths from the door</h3><p>Meadow and forest trails start in the village, from gentle family walks to proper hikes. Mountain bikes can be hired in Villars.</p></div></article>
+        <article class="act reveal"><img src="img/balcony-valley-800.webp" alt="Green valley view from the balcony" loading="lazy"><div><span class="tag">Play</span><h3>Golf at altitude</h3><p>Villars golf course, an 18-hole mountain course, is 7 km away. The village sports centre has tennis, a pool and an ice rink.</p></div></article>
+        <article class="act reveal"><img src="img/ih-pool-640.webp" alt="Heated indoor pool in Le Bristol" loading="lazy"><div><span class="tag">Relax</span><h3>Lavey thermal baths</h3><p>Warm outdoor thermal pools in the Rhône valley, about 25 minutes' drive. Or stay in and use the pool downstairs.</p></div></article>
+        <article class="act reveal"><img src="img/ih-alps-sea-of-fog-640.webp" alt="Alps rising above a sea of cloud" loading="lazy"><div><span class="tag">Day trip</span><h3>Bex salt mines</h3><p>Ride a small train deep into a working salt mine, a hit with children. About 20 minutes' drive down to Bex.</p></div></article>
+        <article class="act reveal"><img src="img/ih-building-summer-640.webp" alt="Le Bristol building in summer" loading="lazy"><div><span class="tag">Day trip</span><h3>Lake Geneva &amp; Chillon</h3><p>Montreux and Château de Chillon on the lake are about 40 minutes away. Swim, take a paddle steamer, and be back for sunset on the balcony.</p></div></article>
+      </div>
+
+      <div id="videos-winter" class="videos" data-show="winter"></div>
+      <div id="videos-summer" class="videos" data-show="summer"></div>
     </div>
   </section>
 
@@ -335,6 +421,7 @@
 
 <footer>
   Le Bristol A46 · Avenue Centrale, 1884 Villars-sur-Ollon · Interhome ref. CH1884.783.20<br>
+  <a href="aiglon-beau-soleil-parents.html" style="color:rgba(255,255,255,.85)">Visiting Aiglon or Beau Soleil? A parents' guide</a><br>
   A privately owned apartment. Not affiliated with any school.
 </footer>
 
@@ -363,6 +450,21 @@
   lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=()=>show(idx-1);lb.querySelector('.nx').onclick=()=>show(idx+1);
   lb.addEventListener('click',e=>{if(e.target===lb)close()});
   addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+  // season toggle
+  const btns=[...document.querySelectorAll('.toggle button')];
+  const setSeason=(s,save)=>{document.body.dataset.season=s;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===s));
+    if(save){try{localStorage.setItem('season',s)}catch(e){}const u=new URL(location);u.searchParams.set('season',s);history.replaceState(null,'',u)}
+    document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in')})};
+  btns.forEach(b=>b.addEventListener('click',()=>setSeason(b.dataset.set,true)));
+  setSeason(document.body.dataset.season,false);
+
+  // videos (click-to-load, no YouTube until clicked)
+  const VIDEOS={winter:[],summer:[]};
+  for(const [season,list] of Object.entries(VIDEOS)){const box=document.getElementById('videos-'+season);if(!box)continue;
+    list.forEach(v=>{const d=document.createElement('div');d.className='video';d.setAttribute('role','button');d.tabIndex=0;d.setAttribute('aria-label','Play video: '+v.title);
+      d.innerHTML=`<img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy"><i></i><span>${v.title}</span>`;
+      const play=()=>{d.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`};
+      d.addEventListener('click',play,{once:true});d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});box.appendChild(d)})}
 </script>
 </body>
 </html>
