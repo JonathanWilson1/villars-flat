@@ -1,8 +1,12 @@
-# VillarsFlat-site
+# Le Bristol A46 — Villars-sur-Ollon
 
-One-page site for Le Bristol A46, Villars-sur-Ollon (Interhome CH1884.783.20).
-Aimed at Aiglon / Beau Soleil parents; every "book" button goes to the owner's
-My Rent link (https://myrent.interhome.com/en/CH1884.783.20/), which earns 10% commission.
+Static site for the Interhome-let flat (CH1884.783.20). Book buttons go to the My Rent link.
 
-Static HTML, no build. Preview: `python3 -m http.server` in this folder.
-Photos: own July 2025 shots, exported to WebP at 800/1600 px with EXIF/GPS stripped.
+- Summer/winter toggle: `?season=summer|winter` (shareable), else saved choice, else by month (Oct–Apr = winter).
+- Pages: `index.html`, `aiglon-beau-soleil-parents.html` (shared styles in `guide.css`).
+- Photos: own (July 2025), Interhome listing (`img/ih-*`), Wikimedia Commons CC BY-SA (`img/cc-*`, credited in footer — keep credits if images stay).
+- Videos: click-to-load YouTube (no-cookie) embeds, list in the `VIDEOS` object.
+- Before deploy: replace `DOMAIN` in `robots.txt` and `sitemap.xml`, add `<link rel="canonical">`, submit sitemap in Search Console.
+- Not deployed. Waiting on Interhome's OK to use the My Rent link and their photos.
+
+Preview: `python3 -m http.server 8742 --bind 127.0.0.1`
