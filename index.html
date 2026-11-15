@@ -250,7 +250,7 @@
 </head>
 <body data-season="summer">
 <script>
-  (function(){var s=new URLSearchParams(location.search).get('season');
+  (function(){var h=location.hash.slice(1),s=(h==='summer'||h==='winter')?h:new URLSearchParams(location.search).get('season');
     if(s!=='summer'&&s!=='winter'){try{s=localStorage.getItem('season')}catch(e){}}
     if(s!=='summer'&&s!=='winter'){var m=new Date().getMonth();s=(m>=9||m<=3)?'winter':'summer'}
     document.body.dataset.season=s})();
@@ -469,7 +469,7 @@
   // season toggle
   const btns=[...document.querySelectorAll('.toggle button')];
   const setSeason=(s,save)=>{document.body.dataset.season=s;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===s));
-    if(save){try{localStorage.setItem('season',s)}catch(e){}const u=new URL(location);u.searchParams.set('season',s);history.replaceState(null,'',u)}
+    if(save){try{localStorage.setItem('season',s)}catch(e){}const u=new URL(location);u.searchParams.delete('season');u.hash=s;history.replaceState(null,'',u)}
     document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in')})};
   btns.forEach(b=>b.addEventListener('click',()=>setSeason(b.dataset.set,true)));
   setSeason(document.body.dataset.season,false);
