@@ -77,10 +77,10 @@
   /* stats card */
   .stats{position:relative;z-index:5;margin-top:-64px}
   .stats ul{list-style:none;margin:0;padding:30px 36px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;background:var(--paper);border-radius:var(--radius);box-shadow:0 30px 60px -20px rgba(22,36,28,.25)}
-  .stats li{display:flex;flex-direction:column;border-left:1px solid var(--line);padding-left:20px}
+  .stats li{display:flex;flex-direction:column;justify-content:flex-start;border-left:1px solid var(--line);padding-left:20px;min-width:0}
   .stats li:first-child{border-left:0;padding-left:0}
-  .stats strong{font-family:var(--serif);font-size:2rem;font-weight:500;line-height:1.1}
-  .stats span{color:var(--muted);font-size:.85rem}
+  .stats strong{font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,2rem);font-weight:500;line-height:1.15;white-space:nowrap}
+  .stats span{color:var(--muted);font-size:.82rem;line-height:1.4;margin-top:4px}
 
   /* intro split */
   .intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
@@ -96,7 +96,13 @@
   .parents .wrap{position:relative}
   .parents .head{max-width:640px}
   .parents .head p{opacity:.8;font-size:1.08rem}
-  .occasions{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:56px 0 48px}
+  .parents-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+  .parents-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+  .occ-list{list-style:none;padding:0;margin:36px 0 40px;border-top:1px solid rgba(255,255,255,.14)}
+  .occ-list li{display:grid;grid-template-columns:44px auto 1fr;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .occ-list span{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.3rem}
+  .occ-list b{font-family:var(--serif);font-weight:500;font-size:1.45rem}
+  .occ-list em{font-style:normal;opacity:.65;font-size:.9rem;text-align:right}
   .occ{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:28px 24px;background:rgba(255,255,255,.03);transition:background .25s,border-color .25s,transform .25s}
   .occ:hover{background:rgba(255,255,255,.07);border-color:rgba(196,154,90,.55);transform:translateY(-4px)}
   .occ .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.6rem}
@@ -173,7 +179,8 @@
     .stats li{border-left:0;padding-left:0}
     .stats li:last-child{grid-column:span 2}
     .intro,.details{grid-template-columns:1fr;gap:48px}
-    .occasions{grid-template-columns:1fr 1fr}
+    .parents-grid{grid-template-columns:1fr;gap:48px}
+    .parents-img{aspect-ratio:4/3}
     .seasons{grid-template-columns:1fr}
     .season{min-height:360px}
     .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
@@ -189,7 +196,8 @@
     footer{padding-bottom:96px}
   }
   @media (max-width:520px){
-    .occasions{grid-template-columns:1fr}
+    .occ-list li{grid-template-columns:36px 1fr}
+    .occ-list em{grid-column:2;text-align:left}
     .hero .ctas .ghost{display:none}
   }
   @media (prefers-reduced-motion:reduce){
@@ -281,10 +289,10 @@
   <div class="wrap">
     <ul class="reveal">
       <li><strong>Sleeps 4</strong><span>1 bedroom + sofa bed</span></li>
-      <li><strong>2 bathrooms</strong><span>shower &amp; bath</span></li>
-      <li><strong>2 balconies</strong><span>mountain &amp; valley views</span></li>
-      <li><strong>Indoor pool</strong><span>heated, in the building</span></li>
-      <li><strong>9 min</strong><span>walk to the village centre</span></li>
+      <li><strong>2 baths</strong><span>shower &amp; bath</span></li>
+      <li><strong>2 balconies</strong><span>mountain views</span></li>
+      <li><strong>Pool</strong><span>heated, indoors</span></li>
+      <li><strong>9 min</strong><span>walk to the village</span></li>
     </ul>
   </div>
 </div>
@@ -306,25 +314,31 @@
   </section>
 
   <section class="parents" id="parents">
-    <div class="wrap">
+    <div class="wrap parents-grid">
+      <div>
       <div class="head reveal">
         <p class="kicker">For Aiglon &amp; Beau Soleil families</p>
         <h2>A home of your own for <em>school weekends</em></h2>
         <p>Villars is home to two of the world's best-known boarding schools. When you come to visit, stay somewhere with space to spread out, a kitchen for family breakfasts and a balcony for the evenings, instead of a hotel room.</p>
       </div>
-      <div class="occasions">
-        <div class="occ reveal"><span class="n">i.</span><h3>Parents' weekends</h3><p>Stays of a few nights, with any arrival day.</p></div>
-        <div class="occ reveal"><span class="n">ii.</span><h3>Exeats &amp; half-term</h3><p>Room for the whole family, with a sofa bed for a fourth guest.</p></div>
-        <div class="occ reveal"><span class="n">iii.</span><h3>Arrivals</h3><p>Settle a new student in without a hotel bill.</p></div>
-        <div class="occ reveal"><span class="n">iv.</span><h3>Graduation</h3><p>Celebrate on the balcony with the whole valley below.</p></div>
+      <ul class="occ-list">
+        <li class="reveal"><span>i.</span><b>Parents' weekends</b><em>a few nights, any arrival day</em></li>
+        <li class="reveal"><span>ii.</span><b>Exeats &amp; half-term</b><em>sofa bed for a sibling or friend</em></li>
+        <li class="reveal"><span>iii.</span><b>Arrivals</b><em>settle them in without a hotel bill</em></li>
+        <li class="reveal"><span>iv.</span><b>Graduation</b><em>celebrate on the balcony</em></li>
+      </ul>
+      <div class="reveal" style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+        <a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">See availability <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+        <a href="aiglon-beau-soleil-parents.html" style="color:var(--gold-soft);font-size:.95rem">Parents' guide: getting here &amp; when to book →</a>
       </div>
-      <p class="reveal" style="opacity:.8;margin:-20px 0 32px"><a href="aiglon-beau-soleil-parents.html" style="color:var(--gold-soft)">Read our parents' guide: getting here, when to book →</a></p>
-      <a class="btn reveal" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">See availability <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <img class="parents-img reveal" src="img/living-room-evening-1600.webp" alt="Cosy pine-panelled living room in warm evening light" loading="lazy">
     </div>
   </section>
 
   <div class="band" aria-hidden="false">
-    <img id="parallax" src="img/balcony-valley-1600.webp" alt="Balcony overlooking the green valley and mountains in summer" loading="lazy">
+    <img id="parallax" data-show="summer" src="img/ih-village-summer-1024.webp" alt="Villars village and the Alps in summer" loading="lazy">
+    <img class="parallax-w" data-show="winter" src="img/ih-view-winter-2-1024.webp" alt="Villars under fresh snow" loading="lazy">
     <div class="quote"><blockquote class="reveal">"Spacious apartment, magnificent view over Villars and the mountains."<cite style="display:block;font:500 .8rem/1.4 var(--sans);font-style:normal;letter-spacing:.18em;text-transform:uppercase;margin-top:20px;opacity:.8">Guest review, translated from French</cite></blockquote></div>
   </div>
 
@@ -335,9 +349,9 @@
         <h2>Warm, light, <em>unmistakably alpine</em></h2>
       </div>
       <div class="gallery reveal" id="gallery">
-        <button class="i1" data-full="img/living-room-1600.webp" aria-label="Open photo: living room"><img src="img/living-room-1600.webp" alt="Living room with pine panelling, blue sofa and wood floor" loading="lazy"></button>
+        <button class="i1" data-full="img/ih-living-ih-1024.webp" aria-label="Open photo: living room"><img src="img/ih-living-ih-1024.webp" alt="Bright pine-panelled living room with sofa, dining table and kitchenette" loading="lazy"></button>
         <button class="i2" data-full="img/living-room-sofas-1600.webp" aria-label="Open photo: two sofas"><img src="img/living-room-sofas-800.webp" alt="Living room with two sofas facing the window" loading="lazy"></button>
-        <button class="i3" data-full="img/balcony-valley-1600.webp" aria-label="Open photo: balcony"><img src="img/balcony-valley-800.webp" alt="Balcony looking down the valley" loading="lazy"></button>
+        <button class="i3" data-full="img/ih-terrace-trees-1024.webp" aria-label="Open photo: balcony"><img src="img/ih-terrace-trees-640.webp" alt="Balcony looking over larch woods and mountains" loading="lazy"></button>
         <button class="i4" data-full="img/living-room-evening-1600.webp" aria-label="Open photo: evening light"><img src="img/living-room-evening-800.webp" alt="Living room in warm evening light" loading="lazy"></button>
         <button class="i5" data-full="img/fondue-closeup-1600.webp" aria-label="Open photo: fondue"><img src="img/fondue-closeup-800.webp" alt="Fondue on the balcony" loading="lazy"></button>
         <button class="i6" data-full="img/kitchenette-1600.webp" aria-label="Open photo: kitchenette"><img src="img/kitchenette-800.webp" alt="White kitchenette with two hot plates and fridge" loading="lazy"></button>
@@ -373,7 +387,7 @@
       <div class="acts" data-show="summer">
         <article class="act reveal"><img src="img/cc-chavonnes-640.webp" alt="Lac des Chavonnes above Bretaye in summer" loading="lazy"><div><span class="tag">Walk</span><h3>The Bretaye lakes</h3><p>Ride the little train from Villars station up to Col de Bretaye, then walk round Lac de Bretaye and Lac Noir, or 30–40 minutes on to Lac des Chavonnes and its lakeside terrace restaurant.</p></div></article>
         <article class="act reveal"><img src="img/cc-bikers-640.webp" alt="Trail through alpine pasture near Col de Bretaye" loading="lazy"><div><span class="tag">Walk</span><h3>Trails for every level</h3><p>Family strolls in the larch woods, the Edelweiss Trail, or up Le Chamossaire for the panorama. Bikes go on the Bretaye train, and can be hired in the village.</p></div></article>
-        <article class="act reveal"><img src="img/balcony-valley-800.webp" alt="Green valley view from the balcony" loading="lazy"><div><span class="tag">Play</span><h3>Golf at altitude</h3><p>Villars golf course, an 18-hole mountain course, is 7 km away. The village sports centre has tennis, a pool and an ice rink.</p></div></article>
+        <article class="act reveal"><img src="img/cc-chamossaire-640.webp" alt="Alpine pastures below Le Chamossaire" loading="lazy"><div><span class="tag">Play</span><h3>Golf at altitude</h3><p>Villars golf course, an 18-hole mountain course, is 7 km away. The village sports centre has tennis, a pool and an ice rink.</p></div></article>
         <article class="act reveal"><img src="img/ih-pool-640.webp" alt="Heated indoor pool in Le Bristol" loading="lazy"><div><span class="tag">Relax</span><h3>Pools &amp; thermal baths</h3><p>The heated pool is downstairs. For a treat, the Lavey thermal baths in the Rhône valley are about 25 minutes' drive, and the village sports centre has a spa.</p></div></article>
         <article class="act reveal"><img src="img/cc-salt-mines-640.webp" alt="Lit tunnel inside the Bex salt mines" loading="lazy"><div><span class="tag">Day trip</span><h3>Bex salt mines</h3><p>Ride a small train deep into a working salt mine, a hit with children. About 20 minutes' drive down to Bex; tours take about 2 hours, so book online.</p></div></article>
         <article class="act reveal"><img src="img/cc-chillon-640.webp" alt="Château de Chillon on Lake Geneva with the Dents du Midi at dusk" loading="lazy"><div><span class="tag">Day trip</span><h3>Lake Geneva &amp; Chillon</h3><p>Montreux and Château de Chillon on the lake are about 40 minutes away. Swim, take a paddle steamer, and be back for sunset on the balcony.</p></div></article>
@@ -410,7 +424,7 @@
   </section>
 
   <section class="cta">
-    <img src="img/balcony-valley-1600.webp" alt="" loading="lazy">
+    <img src="img/balcony-fondue-view-1600.webp" alt="" loading="lazy">
     <div class="wrap reveal">
       <p class="kicker" style="justify-content:center">Le Bristol A46</p>
       <h2>Find <em>your</em> dates</h2>
@@ -424,7 +438,7 @@
   Le Bristol A46 · Avenue Centrale, 1884 Villars-sur-Ollon · Interhome ref. CH1884.783.20<br>
   <a href="aiglon-beau-soleil-parents.html" style="color:rgba(255,255,255,.85)">Visiting Aiglon or Beau Soleil? A parents' guide</a><br>
   A privately owned apartment. Not affiliated with any school.<br>
-  <span style="opacity:.75">Photos: Interhome; the owners; and via Wikimedia Commons, resized: <a href="https://commons.wikimedia.org/wiki/File:04.02.19_Col-de-Bretaye_TPC_BDeh_4_4_83_(40065432863).jpg">Phil Richards</a> (CC BY-SA 2.0), <a href="https://commons.wikimedia.org/wiki/File:Cable_car_to_Glacier-des-Diablerets,_Ormont-Dessus,_Switzerland.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:Mountain_bikers_on_a_trail_near_Col_de_Bretaye,_Villars-sur-Ollon,_Ollon,_Vaud.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:20260916-Bretaye-12-lac_Chavonnes.jpg">MHM55</a>, <a href="https://commons.wikimedia.org/wiki/File:Mines_de_Sel,_Bex,_Switzerland.jpg">Souvaroff</a>, <a href="https://commons.wikimedia.org/wiki/File:001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg">Giles Laurent</a> (all <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> unless stated). Videos: their YouTube channels.</span>
+  <span style="opacity:.75">Photos: Interhome; the owners; and via Wikimedia Commons, resized: <a href="https://commons.wikimedia.org/wiki/File:Col-de-Bretaye_Le_Chamossaire.jpg">Whgler</a>, <a href="https://commons.wikimedia.org/wiki/File:04.02.19_Col-de-Bretaye_TPC_BDeh_4_4_83_(40065432863).jpg">Phil Richards</a> (CC BY-SA 2.0), <a href="https://commons.wikimedia.org/wiki/File:Cable_car_to_Glacier-des-Diablerets,_Ormont-Dessus,_Switzerland.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:Mountain_bikers_on_a_trail_near_Col_de_Bretaye,_Villars-sur-Ollon,_Ollon,_Vaud.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:20260916-Bretaye-12-lac_Chavonnes.jpg">MHM55</a>, <a href="https://commons.wikimedia.org/wiki/File:Mines_de_Sel,_Bex,_Switzerland.jpg">Souvaroff</a>, <a href="https://commons.wikimedia.org/wiki/File:001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg">Giles Laurent</a> (all <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> unless stated). Videos: their YouTube channels.</span>
 </footer>
 
 <div class="bookbar" id="bookbar"><a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">Check dates &amp; book</a></div>
@@ -439,7 +453,7 @@
 <script>
   const nav=document.getElementById('nav'), bar=document.getElementById('bookbar');
   const onScroll=()=>{const y=scrollY;nav.classList.toggle('scrolled',y>40);bar.classList.toggle('show',y>innerHeight*.8);
-    const p=document.getElementById('parallax');if(p){const r=p.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){p.style.transform=`translateY(${(r.top/innerHeight)*-8}%)`}}};
+    const p=document.querySelector(document.body.dataset.season==='winter'?'.parallax-w':'#parallax');if(p){const r=p.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){p.style.transform=`translateY(${(r.top/innerHeight)*-8}%)`}}};
   addEventListener('scroll',onScroll,{passive:true});onScroll();
 
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
