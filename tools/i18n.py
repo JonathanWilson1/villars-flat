@@ -17,7 +17,7 @@ LANGS = {  # code: (native name, dir)
     "es": ("Español", "ltr"), "pt": ("Português", "ltr"), "nl": ("Nederlands", "ltr"), "ar": ("العربية", "rtl"),
     "ru": ("Русский", "ltr"), "zh": ("中文", "ltr"),
 }
-DOMAIN = "https://jonathanwilson1.github.io/villars-flat"
+DOMAIN = "https://lebristolvillars.com"
 BOOK = "https://myrent.interhome.com/en/CH1884.783.20/"
 
 UNIT_TAGS = {"title", "h1", "h2", "h3", "p", "li", "dt", "dd", "summary", "cite", "a", "span", "b", "button", "strong", "blockquote"}
