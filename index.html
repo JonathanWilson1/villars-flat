@@ -90,6 +90,16 @@
   .stack .b{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:1;border:8px solid var(--bg)}
   .intro p{color:var(--muted);font-size:1.08rem}
 
+  /* schools strip */
+  .schools{background:var(--pine);color:#fff;padding:64px 0}
+  .schools h2{font-size:clamp(2rem,4vw,2.8rem);margin:0}
+  .schools-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .schools-links{display:flex;gap:14px;flex-wrap:wrap}
+  .schools-links a{display:flex;flex-direction:column;gap:2px;min-width:220px;padding:18px 22px;border:1px solid rgba(255,255,255,.2);border-radius:14px;text-decoration:none;transition:border-color .2s,background .2s}
+  .schools-links a:hover{border-color:var(--gold);background:rgba(255,255,255,.05)}
+  .schools-links b{font-family:var(--serif);font-weight:500;font-size:1.5rem}
+  .schools-links b::after{content:" →";color:var(--gold)}
+  .schools-links span{font-size:.85rem;opacity:.7}
   /* parents (dark) */
   .parents{background:var(--pine);color:#fff;position:relative;overflow:hidden}
   .parents::before{content:"";position:absolute;inset:auto -10% -40% auto;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(closest-side,rgba(196,154,90,.18),transparent)}
@@ -313,26 +323,16 @@
     </div>
   </section>
 
-  <section class="parents" id="parents">
-    <div class="wrap parents-grid">
+  <section class="schools" id="parents">
+    <div class="wrap schools-row">
       <div>
-      <div class="head reveal">
-        <p class="kicker">For Aiglon &amp; Beau Soleil families</p>
-        <h2>A home of your own for <em>school weekends</em></h2>
-        <p>Villars is home to two of the world's best-known boarding schools. When you come to visit, stay somewhere with space to spread out, a kitchen for family breakfasts and a balcony for the evenings, instead of a hotel room.</p>
+        <p class="kicker">Visiting a Villars school?</p>
+        <h2>Stay close to <em>your child</em></h2>
       </div>
-      <ul class="occ-list">
-        <li class="reveal"><span>i.</span><b>Parents' weekends</b><em>a few nights, any arrival day</em></li>
-        <li class="reveal"><span>ii.</span><b>Exeats &amp; half-term</b><em>sofa bed for a sibling or friend</em></li>
-        <li class="reveal"><span>iii.</span><b>Arrivals</b><em>settle them in without a hotel bill</em></li>
-        <li class="reveal"><span>iv.</span><b>Graduation</b><em>celebrate on the balcony</em></li>
-      </ul>
-      <div class="reveal" style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
-        <a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">See availability <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
-        <span style="font-size:.95rem;opacity:.85">Guides: <a href="aiglon-college-accommodation.html" style="color:var(--gold-soft)">Aiglon College</a> · <a href="beau-soleil-accommodation.html" style="color:var(--gold-soft)">Beau Soleil</a></span>
+      <div class="schools-links">
+        <a href="aiglon-college-accommodation.html"><b>Aiglon College</b><span>about 1.5 km, same road</span></a>
+        <a href="beau-soleil-accommodation.html"><b>Beau Soleil</b><span>about 10 minutes' walk</span></a>
       </div>
-      </div>
-      <img class="parents-img reveal" src="img/living-room-evening-1600.webp" alt="Cosy pine-panelled living room in warm evening light" loading="lazy">
     </div>
   </section>
 
