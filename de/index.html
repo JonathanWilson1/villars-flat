@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Le Bristol A46 · Ferienwohnung mit Balkon und Aussicht in Villars-sur-Ollon</title>
+<meta content="2-Zimmer-Ferienwohnung mit 2 Bädern, zwei Balkonen, Alpenpanorama und Hallenbad, 9 Gehminuten vom Zentrum von Villars-sur-Ollon. Ideal für Elternwochenenden, Skiferien und Sommerferien." name="description"/>
+<meta content="Le Bristol A46 · Villars-sur-Ollon" property="og:title"/>
+<meta content="Balkon mit Alpenblick, Hallenbad, zu Fuss ins Zentrum von Villars." property="og:description"/>
+<meta content="../img/balcony-fondue-view-1600.webp" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="#16241c" name="theme-color"/>
+<link href="../favicon.svg" rel="icon" type="image/svg+xml"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "VacationRental", "name": "Le Bristol A46 · Villars-sur-Ollon", "description": "2-Zimmer-Wohnung mit zwei Balkonen, zwei Bädern und beheiztem Hallenbad im Haus, 500 m vom Zentrum von Villars-sur-Ollon.", "image": ["img/balcony-fondue-view-1600.webp", "img/living-room-1600.webp", "img/ih-bedroom-1600.webp", "img/ih-pool-2-1600.webp"], "address": {"@type": "PostalAddress", "streetAddress": "Avenue Centrale 164", "addressLocality": "Villars-sur-Ollon", "postalCode": "1884", "addressCountry": "CH"}, "containsPlace": {"@type": "Accommodation", "additionalType": "EntirePlace", "occupancy": {"@type": "QuantitativeValue", "value": 4}, "numberOfBedrooms": 1, "numberOfBathroomsTotal": 2, "floorSize": {"@type": "QuantitativeValue", "value": 55, "unitCode": "MTK"}, "amenityFeature": [{"@type": "LocationFeatureSpecification", "name": "Hallenbad", "value": true}, {"@type": "LocationFeatureSpecification", "name": "WLAN", "value": true}, {"@type": "LocationFeatureSpecification", "name": "Balkon", "value": true}]}}</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#f6f1e9; --paper:#fffdf9; --ink:#1b211d; --muted:#5f665f;
+    --pine:#16241c; --pine-2:#22382b; --gold:#c49a5a; --gold-soft:#e8d6b5;
+    --line:rgba(27,33,29,.12); --radius:18px; --max:1180px;
+    --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0 0 .4em;letter-spacing:-.01em}
+  h2{font-size:clamp(2.3rem,5vw,3.6rem)}
+  h2 em,h1 em{font-style:italic;color:var(--gold)}
+  .kicker{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+  .kicker::before{content:"";width:32px;height:1px;background:currentColor}
+  section{padding:120px 0}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--pine);text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.02em;padding:16px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(196,154,90,.35)}
+  .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .btn svg{width:16px;height:16px;transition:transform .2s}
+  .btn:hover svg{transform:translateX(3px)}
+  .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
+  .btn.ghost:hover{background:rgba(255,255,255,.1);box-shadow:none}
+  .btn.dark{background:var(--pine);color:#fff}
+
+  /* nav */
+  .nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,backdrop-filter .3s,padding .3s;padding:22px 0}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:var(--serif);font-size:1.5rem;color:#fff;text-decoration:none;letter-spacing:.02em}
+  .brand small{font-family:var(--sans);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;opacity:.75;margin-left:10px}
+  .nav .btn{padding:11px 22px;font-size:.85rem}
+  .nav.scrolled{background:rgba(22,36,28,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 0}
+
+  /* hero */
+  .hero{position:relative;height:100svh;min-height:620px;overflow:hidden;color:#fff;display:flex;align-items:flex-end}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-out forwards;transform-origin:60% 40%}
+  @keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,13,.45) 0%,rgba(10,18,13,0) 28%,rgba(10,18,13,.15) 50%,rgba(10,18,13,.85) 100%)}
+  .hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:clamp(110px,16vh,170px)}
+  .hero h1{font-size:clamp(3rem,8.5vw,7rem);max-width:11ch;margin-bottom:.25em}
+  .hero .lede{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:44ch;opacity:.92;margin:0 0 34px}
+  .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero .kicker{color:var(--gold-soft)}
+  .hero h1,.hero .lede,.hero .kicker{text-shadow:0 2px 24px rgba(0,0,0,.55)}
+  .hero h1 em{color:var(--gold-soft)}
+  .scroll-cue{position:absolute;left:50%;bottom:26px;z-index:1;width:1px;height:46px;background:linear-gradient(rgba(255,255,255,0),#fff);animation:cue 2.2s ease-in-out infinite}
+  @keyframes cue{0%,100%{opacity:.2;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+
+  /* stats card */
+  .stats{position:relative;z-index:5;margin-top:-64px}
+  .stats ul{list-style:none;margin:0;padding:30px 36px;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;background:var(--paper);border-radius:var(--radius);box-shadow:0 30px 60px -20px rgba(22,36,28,.25)}
+  .stats li{display:flex;flex-direction:column;justify-content:flex-start;border-left:1px solid var(--line);padding-left:20px;min-width:0}
+  .stats li:first-child{border-left:0;padding-left:0}
+  .stats strong{font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,2rem);font-weight:500;line-height:1.15;white-space:nowrap}
+  .stats span{color:var(--muted);font-size:.82rem;line-height:1.4;margin-top:4px}
+
+  /* intro split */
+  .intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .stack{position:relative;padding-bottom:70px}
+  .stack img{border-radius:var(--radius);object-fit:cover;box-shadow:0 30px 60px -25px rgba(0,0,0,.35)}
+  .stack .a{width:82%;aspect-ratio:4/5}
+  .stack .b{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:1;border:8px solid var(--bg)}
+  .intro p{color:var(--muted);font-size:1.08rem}
+
+  /* schools strip */
+  .schools{background:var(--pine);color:#fff;padding:64px 0}
+  .schools h2{font-size:clamp(2rem,4vw,2.8rem);margin:0}
+  .schools-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+  .schools-links{display:flex;gap:14px;flex-wrap:wrap}
+  .schools-links a{display:flex;flex-direction:column;gap:2px;min-width:220px;padding:18px 22px;border:1px solid rgba(255,255,255,.2);border-radius:14px;text-decoration:none;transition:border-color .2s,background .2s}
+  .schools-links a:hover{border-color:var(--gold);background:rgba(255,255,255,.05)}
+  .schools-links b{font-family:var(--serif);font-weight:500;font-size:1.5rem}
+  .schools-links b::after{content:" →";color:var(--gold)}
+  .schools-links span{font-size:.85rem;opacity:.7}
+  /* parents (dark) */
+  .parents{background:var(--pine);color:#fff;position:relative;overflow:hidden}
+  .parents::before{content:"";position:absolute;inset:auto -10% -40% auto;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(closest-side,rgba(196,154,90,.18),transparent)}
+  .parents .wrap{position:relative}
+  .parents .head{max-width:640px}
+  .parents .head p{opacity:.8;font-size:1.08rem}
+  .parents-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:center}
+  .parents-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+  .occ-list{list-style:none;padding:0;margin:36px 0 40px;border-top:1px solid rgba(255,255,255,.14)}
+  .occ-list li{display:grid;grid-template-columns:44px auto 1fr;align-items:baseline;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .occ-list span{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.3rem}
+  .occ-list b{font-family:var(--serif);font-weight:500;font-size:1.45rem}
+  .occ-list em{font-style:normal;opacity:.65;font-size:.9rem;text-align:right}
+  .occ{border:1px solid rgba(255,255,255,.14);border-radius:var(--radius);padding:28px 24px;background:rgba(255,255,255,.03);transition:background .25s,border-color .25s,transform .25s}
+  .occ:hover{background:rgba(255,255,255,.07);border-color:rgba(196,154,90,.55);transform:translateY(-4px)}
+  .occ .n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.6rem}
+  .occ h3{font-size:1.45rem;margin:10px 0 8px}
+  .occ p{margin:0;opacity:.72;font-size:.92rem}
+
+  /* panorama band */
+  .band{position:relative;height:72vh;min-height:420px;overflow:hidden}
+  .band img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;will-change:transform}
+  .band .quote{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:rgba(10,18,13,.32);padding:24px}
+  .band blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(2rem,5vw,3.6rem);margin:0;max-width:18ch;line-height:1.1}
+
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:14px;margin-top:48px}
+  .gallery button{all:unset;cursor:zoom-in;border-radius:14px;overflow:hidden;position:relative}
+  .gallery button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+  .gallery button:hover img{transform:scale(1.06)}
+  .gallery .i1{grid-column:span 7;grid-row:span 4}
+  .gallery .i2{grid-column:span 5;grid-row:span 2}
+  .gallery .i3{grid-column:span 5;grid-row:span 2}
+  .gallery .i4{grid-column:span 4;grid-row:span 2}
+  .gallery .i5{grid-column:span 4;grid-row:span 2}
+  .gallery .i6{grid-column:span 4;grid-row:span 2}
+  .gallery .i7{grid-column:span 6;grid-row:span 3}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(8,12,10,.94);display:none;align-items:center;justify-content:center;padding:24px}
+  .lb.open{display:flex}
+  .lb img{max-height:88vh;max-width:92vw;border-radius:10px;width:auto}
+  .lb button{position:absolute;background:rgba(255,255,255,.1);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
+  .lb .x{top:20px;right:20px}.lb .p{left:20px}.lb .nx{right:20px}
+  .lb button:hover{background:rgba(255,255,255,.2)}
+
+  /* seasons */
+  .seasons{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .season{position:relative;border-radius:var(--radius);overflow:hidden;min-height:440px;color:#fff;display:flex;align-items:flex-end}
+  .season img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s}
+  .season:hover img{transform:scale(1.04)}
+  .season::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(10,18,13,.88))}
+  .season div{position:relative;z-index:1;padding:34px}
+  .season h3{font-size:2.2rem}
+  .season p{margin:0;opacity:.88;font-size:.98rem}
+
+  /* details */
+  .details{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+  .spec{border-top:1px solid var(--line)}
+  .spec div{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+  .spec dt{font-family:var(--serif);font-size:1.3rem}
+  .spec dd{margin:0;color:var(--muted)}
+  .near{list-style:none;padding:0;margin:28px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+  .near li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:8px 0;font-size:.95rem}
+  .near b{font-weight:600}
+
+  /* cta */
+  .cta{position:relative;color:#fff;text-align:center;overflow:hidden;padding:150px 0}
+  .cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cta::after{content:"";position:absolute;inset:0;background:rgba(14,24,18,.72)}
+  .cta .wrap{position:relative;z-index:1}
+  .cta p{max-width:50ch;margin:0 auto 34px;opacity:.85}
+  footer{background:var(--pine);color:rgba(255,255,255,.6);padding:36px 0;font-size:.82rem;text-align:center}
+  footer a{color:inherit}
+
+  /* mobile book bar */
+  .bookbar{display:none}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:900px){
+    section{padding:84px 0}
+    .stats ul{grid-template-columns:repeat(2,1fr);padding:24px}
+    .stats li{border-left:0;padding-left:0}
+    .stats li:last-child{grid-column:span 2}
+    .intro,.details{grid-template-columns:1fr;gap:48px}
+    .parents-grid{grid-template-columns:1fr;gap:48px}
+    .parents-img{aspect-ratio:4/3}
+    .seasons{grid-template-columns:1fr}
+    .season{min-height:360px}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
+    .gallery .i1{grid-column:span 2;grid-row:span 2}
+    .gallery .i2,.gallery .i3,.gallery .i4,.gallery .i5,.gallery .i6,.gallery .i7{grid-column:span 1;grid-row:span 1}
+    .gallery .i6{grid-column:span 2}
+    .spec div{grid-template-columns:1fr;gap:4px}
+    .near{grid-template-columns:1fr}
+    .nav .btn{display:none}
+    .bookbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;justify-content:center;transform:translateY(120%);transition:transform .35s}
+    .bookbar.show{transform:none}
+    .bookbar .btn{width:100%;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+    footer{padding-bottom:96px}
+  }
+  @media (max-width:520px){
+    .occ-list li{grid-template-columns:36px 1fr}
+    .occ-list em{grid-column:2;text-align:left}
+    .hero .ctas .ghost{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+
+  /* language switcher */
+  .lang{position:relative}
+  .lang summary{list-style:none;cursor:pointer;color:#fff;font:600 .8rem/1 var(--sans);letter-spacing:.08em;padding:10px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .lang summary::-webkit-details-marker{display:none}
+  .lang summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .lang-menu{position:absolute;right:0;top:calc(100% + 8px);background:var(--paper);border-radius:14px;box-shadow:0 20px 40px -12px rgba(0,0,0,.35);padding:8px;display:grid;min-width:170px;z-index:80}
+  .lang-menu a{color:var(--ink);text-decoration:none;padding:9px 12px;border-radius:9px;font-size:.92rem}
+  .lang-menu a:hover{background:var(--bg)}
+  .lang-menu a[aria-current]{font-weight:600;color:var(--pine);background:var(--bg)}
+  [dir="rtl"] .lang-menu{right:auto;left:0}
+  [dir="rtl"] .kicker::before{order:2}
+  [dir="rtl"] .act .watch,[dir="rtl"] .btn svg{transform:scaleX(-1)}
+  @media (max-width:520px){.lang summary{padding:9px 10px}}
+
+  /* season toggle */
+  [data-season="summer"] [data-show="winter"],[data-season="winter"] [data-show="summer"]{display:none!important}
+  .toggle{display:inline-flex;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px;gap:2px}
+  .toggle button{all:unset;cursor:pointer;color:#fff;font:600 .8rem/1 var(--sans);letter-spacing:.06em;padding:9px 16px;border-radius:999px;display:flex;align-items:center;gap:7px;transition:background .25s,color .25s}
+  .toggle button svg{width:15px;height:15px}
+  .toggle button[aria-pressed="true"]{background:#fff;color:var(--pine)}
+  .toggle button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .hero .bg{position:absolute;inset:0;transition:opacity 1s ease}
+  .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:kenburns 22s ease-out forwards;transform-origin:60% 40%}
+  [data-season="summer"] .hero .bg.w,[data-season="winter"] .hero .bg.s{opacity:0}
+  [data-season] .hero .bg{display:block!important}
+
+  /* season guide */
+  .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+  .act{background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 40px -24px rgba(22,36,28,.3);display:flex;flex-direction:column}
+  .act img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .act div{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+  .act .watch{margin-top:auto;padding-top:14px;font-size:.85rem;font-weight:600;color:var(--pine);text-decoration:none}
+  .act .watch:hover{color:var(--gold)}
+  .act h3{font-size:1.5rem;margin:0 0 6px}
+  .act p{margin:0;color:var(--muted);font-size:.93rem}
+  .act .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:8px}
+  .film{position:relative;margin-top:40px;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;max-height:78vh;width:100%;background:var(--pine)}
+  .film .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .film-frame{position:absolute;inset:0;pointer-events:none}
+  .film-frame iframe{position:absolute;top:50%;left:50%;width:177.78%;height:100%;min-width:100%;min-height:56.25%;transform:translate(-50%,-50%) scale(1.15);border:0}
+  .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,18,13,.7));pointer-events:none}
+  .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:24px 28px;color:#fff}
+  .film-cap span{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem)}
+  .film-cap a{color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;opacity:.9}
+  .film-cap a:hover{color:var(--gold-soft)}
+  .videos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+  .video{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000;cursor:pointer}
+  .video img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s}
+  .video:hover img{opacity:1}
+  .video span{position:absolute;inset:auto 0 0 0;padding:16px 20px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.75));font-size:.9rem}
+  .video i{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;background:rgba(196,154,90,.95);border-radius:14px}
+  .video i::after{content:"";position:absolute;left:28px;top:14px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent var(--pine)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .credit{font-size:.75rem;color:var(--muted);margin-top:8px}
+  .credit a{color:inherit}
+  @media (max-width:900px){
+    .acts{grid-template-columns:1fr 1fr}
+    .videos{grid-template-columns:1fr}
+    .toggle button{padding:8px 12px}
+  }
+  @media (max-width:560px){
+    .acts{grid-template-columns:1fr}
+    .toggle button .lbl{display:none}
+  }
+</style>
+<link href="https://DOMAIN/" hreflang="en" rel="alternate"/><link href="https://DOMAIN/fr/" hreflang="fr" rel="alternate"/><link href="https://DOMAIN/de/" hreflang="de" rel="alternate"/><link href="https://DOMAIN/it/" hreflang="it" rel="alternate"/><link href="https://DOMAIN/es/" hreflang="es" rel="alternate"/><link href="https://DOMAIN/pt/" hreflang="pt" rel="alternate"/><link href="https://DOMAIN/nl/" hreflang="nl" rel="alternate"/><link href="https://DOMAIN/ar/" hreflang="ar" rel="alternate"/><link href="https://DOMAIN/ru/" hreflang="ru" rel="alternate"/><link href="https://DOMAIN/zh/" hreflang="zh" rel="alternate"/><link href="https://DOMAIN/" hreflang="x-default" rel="alternate"/></head>
+<body data-season="summer">
+<script>
+  (function(){var h=location.hash.slice(1),s=(h==='summer'||h==='winter')?h:new URLSearchParams(location.search).get('season');
+    if(s!=='summer'&&s!=='winter'){try{s=localStorage.getItem('season')}catch(e){}}
+    if(s!=='summer'&&s!=='winter'){var m=new Date().getMonth();s=(m>=9||m<=3)?'winter':'summer'}
+    document.body.dataset.season=s})();
+</script>
+<nav class="nav" id="nav">
+<div class="wrap">
+<a class="brand" href="#top">Le Bristol<small>Villars</small></a>
+<div class="nav-right">
+<div aria-label="Saison" class="toggle" role="group">
+<button aria-pressed="false" data-set="summer" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><span class="lbl">Sommer</span></button>
+<button aria-pressed="false" data-set="winter" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 2v20M4 7l16 10M20 7L4 17M9 3l3 3 3-3M9 21l3-3 3 3"></path></svg><span class="lbl">Winter</span></button>
+</div>
+<div class="lang"><details><summary aria-label="Language">DE</summary><div class="lang-menu"><a href="../" hreflang="en" lang="en">English</a><a href="../fr/" hreflang="fr" lang="fr">Français</a><a aria-current="true" href="../de/" hreflang="de" lang="de">Deutsch</a><a href="../it/" hreflang="it" lang="it">Italiano</a><a href="../es/" hreflang="es" lang="es">Español</a><a href="../pt/" hreflang="pt" lang="pt">Português</a><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a><a href="../ar/" hreflang="ar" lang="ar">العربية</a><a href="../ru/" hreflang="ru" lang="ru">Русский</a><a href="../zh/" hreflang="zh" lang="zh">中文</a></div></details></div><a class="btn" href="https://myrent.interhome.com/de/CH1884.783.20/" rel="noopener">Aufenthalt buchen</a>
+</div>
+</div>
+</nav>
+<header class="hero" id="top">
+<div class="bg s"><img alt="Fondue auf dem Balkon mit Panoramablick auf die Alpen über Villars" fetchpriority="high" sizes="100vw" src="../img/balcony-fondue-view-1600.webp" srcset="../img/balcony-fondue-view-800.webp 800w, ../img/balcony-fondue-view-1600.webp 1600w"/></div>
+<div class="bg w"><img alt="Verschneiter Balkon mit Blick auf Villars und die Berge im Winter" loading="lazy" src="../img/ih-view-winter-1600.webp"/></div>
+<div class="wrap">
+<p class="kicker"><span data-show="summer">Villars-sur-Ollon · Sommer in den Alpen</span><span data-show="winter">Villars-sur-Ollon · Skibus vor der Haustür</span></p>
+<h1>Ihr Balkon <em>über</em> den Alpen</h1>
+<p class="lede" data-show="summer">Eine helle 2-Zimmer-Wohnung mit zwei Balkonen, zwei Badezimmern und beheiztem Hallenbad. Wanderungen, Seen und Golf direkt vor der Tür.</p>
+<p class="lede" data-show="winter">Eine gemütliche 2-Zimmer-Wohnung mit Skiraum, beheiztem Hallenbad und Gratis-Skibus 20 m vor der Tür.</p>
+<div class="ctas">
+<a class="btn" href="https://myrent.interhome.com/de/CH1884.783.20/" rel="noopener">Daten prüfen &amp; buchen<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+<a class="btn ghost" href="#parents">Für Eltern von Schülern</a>
+</div>
+</div>
+<span aria-hidden="true" class="scroll-cue"></span>
+</header>
+<div class="stats">
+<div class="wrap">
+<ul class="reveal">
+<li><strong>4 Personen</strong><span>1 Schlafzimmer + Schlafsofa</span></li>
+<li><strong>2 Bäder</strong><span>Dusche &amp; Badewanne</span></li>
+<li><strong>2 Balkone</strong><span>Bergsicht</span></li>
+<li><strong>Hallenbad</strong><span>beheizt</span></li>
+<li><strong>9 min</strong><span>zu Fuss ins Dorf</span></li>
+</ul>
+</div>
+</div>
+<main>
+<section>
+<div class="wrap intro">
+<div class="stack reveal">
+<img alt="Eckbalkon, gedeckt fürs Abendessen, mit Lärchen und Bergen dahinter" class="a" loading="lazy" sizes="(max-width:900px) 80vw, 40vw" src="../img/balcony-portrait-1600.webp" srcset="../img/balcony-portrait-800.webp 800w, ../img/balcony-portrait-1600.webp 1600w"/>
+<img alt="Käsefondue auf dem Balkontisch" class="b" loading="lazy" src="../img/fondue-closeup-800.webp"/>
+</div>
+<div class="reveal">
+<p class="kicker">Die Wohnung</p>
+<h2>Morgenkaffee mit Blick <em>über die Alpen</em></h2>
+<p>Im vierten Stock des Hauses Le Bristol blickt die Wohnung über das Tal bis zu den Gipfeln. Zwei Balkone fangen die Sonne von morgens bis abends ein. Drinnen sorgen warmes Holztäfer und neue Böden für ein gemütliches Zuhause zu jeder Jahreszeit.</p>
+<p>Die Bushaltestelle ist vor der Tür, Läden und Restaurants sind 9 Gehminuten entfernt, und am Ende des Tages wartet unten das beheizte Hallenbad.</p>
+</div>
+</div>
+</section>
+<section class="schools" id="parents">
+<div class="wrap schools-row">
+<div>
+<p class="kicker">Besuch an einer Schule in Villars?</p>
+<h2>Wohnen Sie nahe bei <em>Ihrem Kind</em></h2>
+</div>
+<div class="schools-links">
+<a href="aiglon-college-accommodation.html"><b>Aiglon College</b><span>ca. 1,5 km, gleiche Strasse</span></a>
+<a href="beau-soleil-accommodation.html"><b>Beau Soleil</b><span>ca. 10 Minuten zu Fuss</span></a>
+</div>
+</div>
+</section>
+<div aria-hidden="false" class="band">
+<img alt="Das Dorf Villars und die Alpen im Sommer" data-show="summer" id="parallax" loading="lazy" src="../img/ih-village-summer-1600.webp"/>
+<img alt="Villars im Neuschnee" class="parallax-w" data-show="winter" loading="lazy" src="../img/ih-view-winter-2-1600.webp"/>
+<div class="quote"><blockquote class="reveal">«Geräumige Wohnung, herrliche Aussicht auf Villars und die Berge.»<cite style="display:block;font:500 .8rem/1.4 var(--sans);font-style:normal;letter-spacing:.18em;text-transform:uppercase;margin-top:20px;opacity:.8">Gästebewertung, aus dem Französischen übersetzt</cite></blockquote></div>
+</div>
+<section>
+<div class="wrap">
+<div class="reveal">
+<p class="kicker">Innenräume</p>
+<h2>Warm, hell, <em>unverkennbar alpin</em></h2>
+</div>
+<div class="gallery reveal" id="gallery">
+<button aria-label="Foto öffnen: Wohnzimmer" class="i1" data-full="img/ih-living-ih-1600.webp"><img alt="Helles Wohnzimmer mit Holztäfer, Sofa, Esstisch und Kochnische" loading="lazy" src="../img/ih-living-ih-1600.webp"/></button>
+<button aria-label="Foto öffnen: zwei Sofas" class="i2" data-full="img/living-room-sofas-1600.webp"><img alt="Wohnzimmer mit zwei Sofas zum Fenster hin" loading="lazy" src="../img/living-room-sofas-1600.webp"/></button>
+<button aria-label="Foto öffnen: Balkon" class="i3" data-full="img/ih-terrace-trees-1600.webp"><img alt="Balkon mit Blick über Lärchenwälder und Berge" loading="lazy" src="../img/ih-terrace-trees-1600.webp"/></button>
+<button aria-label="Foto öffnen: Abendlicht" class="i4" data-full="img/living-room-evening-1600.webp"><img alt="Wohnzimmer im warmen Abendlicht" loading="lazy" src="../img/living-room-evening-1600.webp"/></button>
+<button aria-label="Foto öffnen: Fondue" class="i5" data-full="img/fondue-closeup-1600.webp"><img alt="Fondue auf dem Balkon" loading="lazy" src="../img/fondue-closeup-1600.webp"/></button>
+<button aria-label="Foto öffnen: Kochnische" class="i6" data-full="img/kitchenette-1600.webp"><img alt="Weisse Kochnische mit zwei Kochplatten und Kühlschrank" loading="lazy" src="../img/kitchenette-1600.webp"/></button>
+<button aria-label="Foto öffnen: Schlafzimmer" class="i4" data-full="img/ih-bedroom-1600.webp"><img alt="Zweibettzimmer mit Möbeln aus Kiefernholz" loading="lazy" src="../img/ih-bedroom-1600.webp"/></button>
+<button aria-label="Foto öffnen: Badezimmer" class="i5" data-full="img/ih-bathroom-1600.webp"><img alt="Badezimmer mit Badewanne und Marmorfliesen" loading="lazy" src="../img/ih-bathroom-1600.webp"/></button>
+<button aria-label="Foto öffnen: Hallenbad" class="i6" data-full="img/ih-pool-2-1600.webp"><img alt="Beheiztes Hallenbad im Haus" loading="lazy" src="../img/ih-pool-2-1600.webp"/></button>
+<button aria-label="Foto öffnen: Balkontisch" class="i7" data-full="img/ih-terrace-summer-1600.webp"><img alt="Balkontisch und Stühle mit Bergblick" loading="lazy" src="../img/ih-terrace-summer-1600.webp"/></button>
+<button aria-label="Foto öffnen: Gebäude im Winter" class="i7" data-full="img/ih-building-snow-1600.webp"><img alt="Le Bristol mit Holzbalkonen im Schnee" loading="lazy" src="../img/ih-building-snow-1600.webp"/></button>
+</div>
+</div>
+</section>
+<section id="season" style="padding-top:0">
+<div class="wrap">
+<div class="reveal" data-show="winter">
+<p class="kicker">Winter in Villars</p>
+<h2>Skibus vor der Tür, <em>Fondue</em> am Abend</h2>
+</div>
+<div class="reveal" data-show="summer">
+<p class="kicker">Sommer in Villars</p>
+<h2>Seen, Lärchenwälder <em>&amp; lange Abende</em></h2>
+</div>
+<div class="film reveal" id="film">
+<img alt="Luftaufnahme von Villars im Winter" class="poster" data-show="winter" loading="lazy" src="../img/ih-village-aerial-winter-1600.webp"/>
+<img alt="Villars und die Alpen im Sommer" class="poster" data-show="summer" loading="lazy" src="../img/ih-village-summer-1600.webp"/>
+<div aria-hidden="true" class="film-frame"></div>
+<div class="film-cap"><span data-show="winter">Villars von oben</span><span data-show="summer">Sommer in Villars</span><a href="#" id="film-link" rel="noopener" target="_blank">Mit Ton auf YouTube ansehen →</a></div>
+</div>
+<div class="acts" data-show="winter">
+<article class="act reveal"><img alt="Sonnige Pisten im Skigebiet Villars–Gryon" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-bretaye-pistes-640.webp" srcset="../img/ih-bretaye-pistes-640.webp 640w, ../img/ih-bretaye-pistes-1600.webp 1600w"/><div><span class="tag">Ski</span><h3>Über 100 km Pisten</h3><p>Das Skigebiet Villars–Gryon–Les Diablerets verbindet breite blaue und rote Pisten mit Blick auf den Mont Blanc. Der Gratis-Skibus hält 20 m vom Haus entfernt.</p><a class="watch" href="https://www.youtube.com/watch?v=CbQDWwzwPjw" rel="noopener" target="_blank">▶ Film zum Skigebiet ansehen</a></div></article>
+<article class="act reveal"><img alt="Die rote Bergbahn am Col de Bretaye in der Skisaison" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-bvb-winter-640.webp" srcset="../img/cc-bvb-winter-640.webp 640w, ../img/cc-bvb-winter-1200.webp 1200w"/><div><span class="tag">Hinauf</span><h3>Die Bahn nach Bretaye</h3><p>Die kleine Zahnradbahn fährt vom Bahnhof Villars, 500 m von der Wohnung, direkt hinauf zum Col de Bretaye mitten im Skigebiet. Mit gültigem Skipass gratis.</p></div></article>
+<article class="act reveal"><img alt="Station der Gondelbahn Roc d'Orsay in Villars" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-roc-dorsay-640.webp" srcset="../img/ih-roc-dorsay-640.webp 640w, ../img/ih-roc-dorsay-1600.webp 1600w"/><div><span class="tag">Hinauf</span><h3>Gondelbahn Roc d'Orsay</h3><p>Oder nehmen Sie die Gondelbahn vom Dorf hinauf zum Roc d'Orsay. Schliessfächer, Skiverleih und Skischulen für Kinder ab 3 Jahren sind ganz in der Nähe.</p><a class="watch" href="https://www.youtube.com/watch?v=2sjo3N2Ron0" rel="noopener" target="_blank">▶ Video: Skifahren mit der Familie in Villars</a></div></article>
+<article class="act reveal"><img alt="Fussspuren im Neuschnee zwischen Tannen" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-snow-trail-640.webp" srcset="../img/ih-snow-trail-640.webp 640w, ../img/ih-snow-trail-1600.webp 1600w"/><div><span class="tag">Nicht auf den Ski?</span><h3>Winterwandern &amp; Schneeschuhe</h3><p>Präparierte Winterwanderwege und Schneeschuhtrails starten im Dorf und in Bretaye. Dazu Schlitteln und eine Eisbahn.</p></div></article>
+<article class="act reveal"><img alt="Beheiztes Hallenbad im Le Bristol" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-pool-2-640.webp" srcset="../img/ih-pool-2-640.webp 640w, ../img/ih-pool-2-1600.webp 1600w"/><div><span class="tag">Après-Ski</span><h3>Hallenbad im Haus</h3><p>Zurück im Haus die Ski in den Skiraum stellen und im beheizten Hallenbad schwimmen. Danach Fondue auf dem Balkon.</p></div></article>
+<article class="act reveal"><img alt="Seilbahn von Glacier 3000 und die verschneiten Gipfel der Diablerets" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-glacier-summer-640.webp" srcset="../img/cc-glacier-summer-640.webp 640w, ../img/cc-glacier-summer-1200.webp 1200w"/><div><span class="tag">Tagesausflug</span><h3>Glacier 3000</h3><p>Rund 40 Autominuten via Les Diablerets: Luftseilbahn zum Gletscher, Hängebrücke Peak Walk und Skifahren auf 3000 m.</p><a class="watch" href="https://www.youtube.com/watch?v=xYDu4DZP07M" rel="noopener" target="_blank">▶ Video: Glacier 3000</a></div></article>
+</div>
+<div class="acts" data-show="summer">
+<article class="act reveal"><img alt="Der Lac des Chavonnes oberhalb von Bretaye im Sommer" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chavonnes-640.webp" srcset="../img/cc-chavonnes-640.webp 640w, ../img/cc-chavonnes-1200.webp 1200w"/><div><span class="tag">Wandern</span><h3>Die Seen von Bretaye</h3><p>Mit der kleinen Bahn ab Bahnhof Villars hinauf zum Col de Bretaye, dann rund um den Lac de Bretaye und den Lac Noir – oder 30–40 Minuten weiter zum Lac des Chavonnes mit seinem Terrassenrestaurant am Ufer.</p><a class="watch" href="https://www.youtube.com/watch?v=JS_MMCxdb_E" rel="noopener" target="_blank">▶ Video: Seenwanderung in Bretaye</a></div></article>
+<article class="act reveal"><img alt="Wanderweg über Alpweiden beim Col de Bretaye" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-bikers-640.webp" srcset="../img/cc-bikers-640.webp 640w, ../img/cc-bikers-1200.webp 1200w"/><div><span class="tag">Wandern</span><h3>Wege für jedes Niveau</h3><p>Familienspaziergänge im Lärchenwald, der Edelweiss-Weg oder hinauf auf Le Chamossaire fürs Panorama. Velos fahren im Bretaye-Zug mit und können im Dorf gemietet werden.</p></div></article>
+<article class="act reveal"><img alt="Alpweiden unterhalb von Le Chamossaire" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chamossaire-640.webp" srcset="../img/cc-chamossaire-640.webp 640w, ../img/cc-chamossaire-1200.webp 1200w"/><div><span class="tag">Sport</span><h3>Golf in der Höhe</h3><p>Der Golfplatz Villars, ein 18-Loch-Bergplatz, liegt 7 km entfernt. Das Sportzentrum im Dorf bietet Tennis, Schwimmbad und Eisbahn.</p></div></article>
+<article class="act reveal"><img alt="Beheiztes Hallenbad im Le Bristol" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-pool-2-640.webp" srcset="../img/ih-pool-2-640.webp 640w, ../img/ih-pool-2-1600.webp 1600w"/><div><span class="tag">Entspannen</span><h3>Bäder &amp; Thermen</h3><p>Das beheizte Hallenbad ist im Haus. Zum Verwöhnen: Die Thermalbäder von Lavey im Rhonetal sind rund 25 Autominuten entfernt, und das Sportzentrum im Dorf hat ein Spa.</p></div></article>
+<article class="act reveal"><img alt="Beleuchteter Stollen im Salzbergwerk Bex" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-salt-mines-640.webp" srcset="../img/cc-salt-mines-640.webp 640w, ../img/cc-salt-mines-1200.webp 1200w"/><div><span class="tag">Tagesausflug</span><h3>Salzbergwerk Bex</h3><p>Mit einem kleinen Zug tief hinein in ein aktives Salzbergwerk – ein Hit bei Kindern. Rund 20 Autominuten hinunter nach Bex; Führungen dauern etwa 2 Stunden, also online buchen.</p><a class="watch" href="https://www.youtube.com/watch?v=Cw825Yp_uSU" rel="noopener" target="_blank">▶ Video: im Salzbergwerk</a></div></article>
+<article class="act reveal"><img alt="Das Château de Chillon am Genfersee mit den Dents du Midi in der Abenddämmerung" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chillon-640.webp" srcset="../img/cc-chillon-640.webp 640w, ../img/cc-chillon-1200.webp 1200w"/><div><span class="tag">Tagesausflug</span><h3>Genfersee &amp; Chillon</h3><p>Montreux und das Château de Chillon am See sind rund 40 Minuten entfernt. Baden, mit dem Raddampfer fahren und zum Sonnenuntergang zurück auf dem Balkon.</p></div></article>
+</div>
+</div>
+</section>
+<section style="padding-top:0">
+<div class="wrap details">
+<div class="reveal">
+<p class="kicker">Die Details</p>
+<h2>Alles, <em>was Sie brauchen</em></h2>
+<ul class="near">
+<li>Dorfzentrum <b>500 m</b></li>
+<li>Skibushaltestelle <b>20 m</b></li>
+<li>Bahnhof Villars <b>500 m</b></li>
+<li>Skischule <b>550 m</b></li>
+<li>Eisbahn <b>900 m</b></li>
+<li>Golf (18 Loch) <b>7 km</b></li>
+</ul>
+</div>
+<dl class="spec reveal">
+<div><dt>Schlafzimmer</dt><dd>Zwei Einzelbetten (90 cm), Bad mit Badewanne, eigener Balkon</dd></div>
+<div><dt>Wohnzimmer</dt><dd>Doppel-Schlafsofa (140 cm), TV, Duschraum, Balkon mit Gartentisch</dd></div>
+<div><dt>Kochnische</dt><dd>Zwei Kochplatten, Mikrowelle, Kühlschrank, Wasserkocher, Toaster, Raclette-Ofen und Fondue-Set</dd></div>
+<div><dt>Gebäude</dt><dd>4. Stock mit Lift, beheiztes Hallenbad, Skiraum, Waschmaschine &amp; Tumbler (kostenpflichtig)</dd></div>
+<div><dt>Ausserdem</dt><dd>Gratis-WLAN, Nichtraucher, ein Hund willkommen</dd></div>
+<div><dt>Schlüssel &amp; Hilfe</dt><dd>Interhome hat ein bedientes Büro in Villars an der Avenue Centrale, an derselben Strasse wie die Wohnung, für die Schlüssel und alles, was Sie während Ihres Aufenthalts brauchen</dd></div>
+<div><dt>Check-in</dt><dd>16:00–18:00 · Abreise bis 10:00</dd></div>
+</dl>
+</div>
+</section>
+<section class="cta">
+<img alt="" loading="lazy" src="../img/balcony-fondue-view-1600.webp"/>
+<div class="wrap reveal">
+<p class="kicker" style="justify-content:center">Le Bristol A46</p>
+<h2>Wählen Sie <em>Ihre</em> Reisedaten</h2>
+<p>Buchungen laufen sicher über Interhome. Das lokale Büro in Villars kümmert sich um Schlüssel, Reinigung und Hilfe während Ihres Aufenthalts.</p>
+<a class="btn" href="https://myrent.interhome.com/de/CH1884.783.20/" rel="noopener">Daten prüfen &amp; buchen<svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+</div>
+</section>
+</main>
+<footer>Le Bristol A46 · Avenue Centrale, 1884 Villars-sur-Ollon · Interhome-Ref. CH1884.783.20<br/>
+<a href="aiglon-college-accommodation.html" style="color:rgba(255,255,255,.85)">Unterkunft beim Aiglon College</a> · <a href="beau-soleil-accommodation.html" style="color:rgba(255,255,255,.85)">Unterkunft beim Beau Soleil</a><br/>Eine private Ferienwohnung. Mit keiner Schule verbunden.<br/>
+<span style="opacity:.75">Fotos: Interhome; die Eigentümer; sowie via Wikimedia Commons, verkleinert: <a href="https://commons.wikimedia.org/wiki/File:Col-de-Bretaye_Le_Chamossaire.jpg">Whgler</a>, <a href="https://commons.wikimedia.org/wiki/File:04.02.19_Col-de-Bretaye_TPC_BDeh_4_4_83_(40065432863).jpg">Phil Richards</a> (CC BY-SA 2.0), <a href="https://commons.wikimedia.org/wiki/File:Cable_car_to_Glacier-des-Diablerets,_Ormont-Dessus,_Switzerland.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:Mountain_bikers_on_a_trail_near_Col_de_Bretaye,_Villars-sur-Ollon,_Ollon,_Vaud.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:20260916-Bretaye-12-lac_Chavonnes.jpg">MHM55</a>, <a href="https://commons.wikimedia.org/wiki/File:Mines_de_Sel,_Bex,_Switzerland.jpg">Souvaroff</a>, <a href="https://commons.wikimedia.org/wiki/File:001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg">Giles Laurent</a> (alle <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, sofern nicht anders angegeben). Videos: die jeweiligen YouTube-Kanäle.</span>
+</footer>
+<div class="bookbar" id="bookbar"><a class="btn" href="https://myrent.interhome.com/de/CH1884.783.20/" rel="noopener">Daten prüfen &amp; buchen</a></div>
+<div aria-label="Fotoansicht" aria-modal="true" class="lb" id="lb" role="dialog">
+<button aria-label="Schliessen" class="x">×</button>
+<button aria-label="Vorheriges Foto" class="p">‹</button>
+<img alt=""/>
+<button aria-label="Nächstes Foto" class="nx">›</button>
+</div>
+<script>
+  const nav=document.getElementById('nav'), bar=document.getElementById('bookbar');
+  const onScroll=()=>{const y=scrollY;nav.classList.toggle('scrolled',y>40);bar.classList.toggle('show',y>innerHeight*.8);
+    const p=document.querySelector(document.body.dataset.season==='winter'?'.parallax-w':'#parallax');if(p){const r=p.parentElement.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight){p.style.transform=`translateY(${(r.top/innerHeight)*-8}%)`}}};
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(el.classList.contains('occ')?(i%4)*90:0)+'ms';io.observe(el)});
+
+  const items=[...document.querySelectorAll('#gallery button')], lb=document.getElementById('lb'), lbImg=lb.querySelector('img');let idx=0,last;
+  const show=i=>{idx=(i+items.length)%items.length;lbImg.src=items[idx].dataset.full;lbImg.alt=items[idx].querySelector('img').alt};
+  items.forEach((b,i)=>b.addEventListener('click',()=>{last=b;show(i);lb.classList.add('open');lb.querySelector('.x').focus()}));
+  const close=()=>{lb.classList.remove('open');last&&last.focus()};
+  lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=()=>show(idx-1);lb.querySelector('.nx').onclick=()=>show(idx+1);
+  lb.addEventListener('click',e=>{if(e.target===lb)close()});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+  // season toggle
+  const btns=[...document.querySelectorAll('.toggle button')];
+  const setSeason=(s,save)=>{document.body.dataset.season=s;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===s));
+    if(save){try{localStorage.setItem('season',s)}catch(e){}const u=new URL(location);u.searchParams.delete('season');u.hash=s;history.replaceState(null,'',u)}
+    document.querySelectorAll('.reveal:not(.in)').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in')})};
+  btns.forEach(b=>b.addEventListener('click',()=>setSeason(b.dataset.set,true)));
+  setSeason(document.body.dataset.season,false);
+
+  // language menu: keep the season when switching, close on outside click
+  document.querySelectorAll('.lang-menu a').forEach(a=>a.addEventListener('click',()=>{a.href=a.href.split('#')[0]+'#'+document.body.dataset.season}));
+  document.addEventListener('click',e=>{document.querySelectorAll('.lang details[open]').forEach(d=>{if(!d.contains(e.target))d.open=false})});
+  // background film: muted autoplay YouTube, loaded when near view; poster + link where embeds aren't possible
+  const FILMS={winter:'CbQDWwzwPjw',summer:'GGCYBo5ZmKw'};
+  const film=document.getElementById('film'),frame=film.querySelector('.film-frame'),flink=document.getElementById('film-link');
+  const noMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;let filmOn=false;
+  const loadFilm=()=>{const id=FILMS[document.body.dataset.season];flink.href='https://www.youtube.com/watch?v='+id;
+    if(!filmOn||noMotion||window.NO_EMBED){frame.innerHTML='';return}
+    frame.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" title="Villars from above" allow="autoplay; encrypted-media" tabindex="-1"></iframe>`};
+  new IntersectionObserver(es=>{if(es[0].isIntersecting&&!filmOn){filmOn=true;loadFilm()}},{rootMargin:'300px'}).observe(film);
+  btns.forEach(b=>b.addEventListener('click',loadFilm));loadFilm();
+</script>
+</body>
+</html>
