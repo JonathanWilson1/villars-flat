@@ -6,8 +6,7 @@ Static site for the Interhome-let flat (CH1884.783.20). Book buttons go to the M
 - Pages: `index.html`, `aiglon-college-accommodation.html`, `beau-soleil-accommodation.html` (one SEO page per school) (shared styles in `guide.css`).
 - Photos: own (July 2025), Interhome listing (`img/ih-*`), Wikimedia Commons CC BY-SA (`img/cc-*`, credited in footer — keep credits if images stay).
 - Videos: click-to-load YouTube (no-cookie) embeds, list in the `VIDEOS` object.
-- Before deploy: replace `DOMAIN` in `robots.txt` and `sitemap.xml`, add `<link rel="canonical">`, submit sitemap in Search Console.
-- Not deployed. Waiting on Interhome's OK to use the My Rent link and their photos.
+- Hosted on GitHub Pages: https://jonathanwilson1.github.io/villars-flat/ (DOMAIN constant in `tools/i18n.py`; change it there and re-render if a custom domain is added). Submit `sitemap.xml` in Search Console.
 
 Preview: `python3 -m http.server 8742 --bind 127.0.0.1`
 

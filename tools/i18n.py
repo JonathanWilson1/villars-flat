@@ -17,7 +17,7 @@ LANGS = {  # code: (native name, dir)
     "es": ("Español", "ltr"), "pt": ("Português", "ltr"), "nl": ("Nederlands", "ltr"), "ar": ("العربية", "rtl"),
     "ru": ("Русский", "ltr"), "zh": ("中文", "ltr"),
 }
-DOMAIN = "https://DOMAIN"
+DOMAIN = "https://jonathanwilson1.github.io/villars-flat"
 BOOK = "https://myrent.interhome.com/en/CH1884.783.20/"
 
 UNIT_TAGS = {"title", "h1", "h2", "h3", "p", "li", "dt", "dd", "summary", "cite", "a", "span", "b", "button", "strong", "blockquote"}
@@ -117,13 +117,14 @@ def place_switcher(soup, lang, page):
     (btn.insert_before(sw) if btn else host.append(sw))
 
 
-def hreflang(soup, page):
-    for l in soup.find_all("link", rel="alternate"): l.decompose()
+def hreflang(soup, page, lang="en"):
+    for l in soup.find_all("link", rel=["alternate", "canonical"]): l.decompose()
     head = soup.head
     path = "" if page == "index.html" else page
     for l in LANGS:
         head.append(BeautifulSoup(f'<link rel="alternate" hreflang="{l}" href="{DOMAIN}/{"" if l == "en" else l + "/"}{path}">', "html.parser"))
     head.append(BeautifulSoup(f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}/{path}">', "html.parser"))
+    head.append(BeautifulSoup(f'<link rel="canonical" href="{DOMAIN}/{"" if lang == "en" else lang + "/"}{path}">', "html.parser"))
 
 
 def render():
@@ -169,8 +170,9 @@ def render():
                     if a == "srcset": t[a] = re.sub(r"(^|,\s*)(img/)", r"\1../img/", v); continue
                     if v.startswith(("img/", "guide.css", "favicon.svg")): t[a] = "../" + v
                     elif v == BOOK: t[a] = BOOK.replace("/en/", f"/{lang}/")
-            for m in soup.find_all("meta", property="og:image"): m["content"] = "../" + m["content"]
-            place_switcher(soup, lang, page); hreflang(soup, page)
+            for m in soup.find_all("meta", property="og:image"):
+                if not m["content"].startswith("http"): m["content"] = "../" + m["content"]
+            place_switcher(soup, lang, page); hreflang(soup, page, lang)
             open(os.path.join(ROOT, lang, page), "w", encoding="utf-8").write(str(soup))
         print(f"{lang}: rendered, {miss} untranslated strings fell back to English")
     urls = [f"{DOMAIN}/{'' if l == 'en' else l + '/'}{'' if p == 'index.html' else p}" for l in LANGS for p in PAGES
