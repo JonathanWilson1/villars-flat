@@ -233,10 +233,21 @@
   .acts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
   .act{background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:0 20px 40px -24px rgba(22,36,28,.3);display:flex;flex-direction:column}
   .act img{aspect-ratio:4/3;object-fit:cover;width:100%}
-  .act div{padding:22px 24px 26px}
+  .act div{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1}
+  .act .watch{margin-top:auto;padding-top:14px;font-size:.85rem;font-weight:600;color:var(--pine);text-decoration:none}
+  .act .watch:hover{color:var(--gold)}
   .act h3{font-size:1.5rem;margin:0 0 6px}
   .act p{margin:0;color:var(--muted);font-size:.93rem}
   .act .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:8px}
+  .film{position:relative;margin-top:56px;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;max-height:78vh;width:100%;background:var(--pine)}
+  .film .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .film-frame{position:absolute;inset:0;pointer-events:none}
+  .film-frame iframe{position:absolute;top:50%;left:50%;width:177.78%;height:100%;min-width:100%;min-height:56.25%;transform:translate(-50%,-50%) scale(1.15);border:0}
+  .film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,18,13,.7));pointer-events:none}
+  .film-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:24px 28px;color:#fff}
+  .film-cap span{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem)}
+  .film-cap a{color:#fff;font-size:.85rem;font-weight:600;text-decoration:none;opacity:.9}
+  .film-cap a:hover{color:var(--gold-soft)}
   .videos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
   .video{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000;cursor:pointer}
   .video img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .3s}
@@ -376,25 +387,29 @@
       </div>
 
       <div class="acts" data-show="winter">
-        <article class="act reveal"><img src="img/ih-bretaye-pistes-640.webp" srcset="img/ih-bretaye-pistes-640.webp 640w, img/ih-bretaye-pistes-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Sunny pistes in the Villars–Gryon ski area" loading="lazy"><div><span class="tag">Ski</span><h3>Over 100 km of pistes</h3><p>Villars–Gryon–Les Diablerets links wide blue and red runs with views to Mont Blanc. The free ski bus stops 20 m from the building.</p></div></article>
+        <article class="act reveal"><img src="img/ih-bretaye-pistes-640.webp" srcset="img/ih-bretaye-pistes-640.webp 640w, img/ih-bretaye-pistes-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Sunny pistes in the Villars–Gryon ski area" loading="lazy"><div><span class="tag">Ski</span><h3>Over 100 km of pistes</h3><p>Villars–Gryon–Les Diablerets links wide blue and red runs with views to Mont Blanc. The free ski bus stops 20 m from the building.</p><a class="watch" href="https://www.youtube.com/watch?v=CbQDWwzwPjw" target="_blank" rel="noopener">▶ Watch the ski area film</a></div></article>
         <article class="act reveal"><img src="img/cc-bvb-winter-640.webp" srcset="img/cc-bvb-winter-640.webp 640w, img/cc-bvb-winter-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="The red mountain train at Col de Bretaye in ski season" loading="lazy"><div><span class="tag">Getting up</span><h3>The train to Bretaye</h3><p>The little rack railway climbs from Villars station, 500 m from the flat, straight up to Col de Bretaye at the heart of the ski area. Free with a valid ski pass.</p></div></article>
-        <article class="act reveal"><img src="img/ih-roc-dorsay-640.webp" srcset="img/ih-roc-dorsay-640.webp 640w, img/ih-roc-dorsay-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Roc d'Orsay gondola station in Villars" loading="lazy"><div><span class="tag">Getting up</span><h3>Roc d'Orsay gondola</h3><p>Or take the gondola from the village up to Roc d'Orsay. Lockers, ski hire and ski schools for children from age 3 are all close by.</p></div></article>
+        <article class="act reveal"><img src="img/ih-roc-dorsay-640.webp" srcset="img/ih-roc-dorsay-640.webp 640w, img/ih-roc-dorsay-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Roc d'Orsay gondola station in Villars" loading="lazy"><div><span class="tag">Getting up</span><h3>Roc d'Orsay gondola</h3><p>Or take the gondola from the village up to Roc d'Orsay. Lockers, ski hire and ski schools for children from age 3 are all close by.</p><a class="watch" href="https://www.youtube.com/watch?v=2sjo3N2Ron0" target="_blank" rel="noopener">▶ Watch: family skiing in Villars</a></div></article>
         <article class="act reveal"><img src="img/ih-snow-trail-640.webp" srcset="img/ih-snow-trail-640.webp 640w, img/ih-snow-trail-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Footprints across fresh snow between fir trees" loading="lazy"><div><span class="tag">Not skiing?</span><h3>Winter walks &amp; snowshoes</h3><p>Groomed winter footpaths and snowshoe trails start from the village and from Bretaye. Sledging and an ice rink too.</p></div></article>
         <article class="act reveal"><img src="img/ih-pool-2-640.webp" srcset="img/ih-pool-2-640.webp 640w, img/ih-pool-2-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Heated indoor pool in Le Bristol" loading="lazy"><div><span class="tag">Après-ski</span><h3>Pool downstairs</h3><p>Come back, drop the skis in the ski room and swim in the heated indoor pool in the building. Then fondue on the balcony.</p></div></article>
-        <article class="act reveal"><img src="img/cc-glacier-summer-640.webp" srcset="img/cc-glacier-summer-640.webp 640w, img/cc-glacier-summer-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Glacier 3000 cable car and the snowy peaks of the Diablerets" loading="lazy"><div><span class="tag">Day trip</span><h3>Glacier 3000</h3><p>About 40 minutes' drive via Les Diablerets: a cable car to the glacier, the Peak Walk suspension bridge and skiing at 3,000 m.</p></div></article>
+        <article class="act reveal"><img src="img/cc-glacier-summer-640.webp" srcset="img/cc-glacier-summer-640.webp 640w, img/cc-glacier-summer-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Glacier 3000 cable car and the snowy peaks of the Diablerets" loading="lazy"><div><span class="tag">Day trip</span><h3>Glacier 3000</h3><p>About 40 minutes' drive via Les Diablerets: a cable car to the glacier, the Peak Walk suspension bridge and skiing at 3,000 m.</p><a class="watch" href="https://www.youtube.com/watch?v=xYDu4DZP07M" target="_blank" rel="noopener">▶ Watch: Glacier 3000</a></div></article>
       </div>
 
       <div class="acts" data-show="summer">
-        <article class="act reveal"><img src="img/cc-chavonnes-640.webp" srcset="img/cc-chavonnes-640.webp 640w, img/cc-chavonnes-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Lac des Chavonnes above Bretaye in summer" loading="lazy"><div><span class="tag">Walk</span><h3>The Bretaye lakes</h3><p>Ride the little train from Villars station up to Col de Bretaye, then walk round Lac de Bretaye and Lac Noir, or 30–40 minutes on to Lac des Chavonnes and its lakeside terrace restaurant.</p></div></article>
+        <article class="act reveal"><img src="img/cc-chavonnes-640.webp" srcset="img/cc-chavonnes-640.webp 640w, img/cc-chavonnes-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Lac des Chavonnes above Bretaye in summer" loading="lazy"><div><span class="tag">Walk</span><h3>The Bretaye lakes</h3><p>Ride the little train from Villars station up to Col de Bretaye, then walk round Lac de Bretaye and Lac Noir, or 30–40 minutes on to Lac des Chavonnes and its lakeside terrace restaurant.</p><a class="watch" href="https://www.youtube.com/watch?v=JS_MMCxdb_E" target="_blank" rel="noopener">▶ Watch: the Bretaye lakes walk</a></div></article>
         <article class="act reveal"><img src="img/cc-bikers-640.webp" srcset="img/cc-bikers-640.webp 640w, img/cc-bikers-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Trail through alpine pasture near Col de Bretaye" loading="lazy"><div><span class="tag">Walk</span><h3>Trails for every level</h3><p>Family strolls in the larch woods, the Edelweiss Trail, or up Le Chamossaire for the panorama. Bikes go on the Bretaye train, and can be hired in the village.</p></div></article>
         <article class="act reveal"><img src="img/cc-chamossaire-640.webp" srcset="img/cc-chamossaire-640.webp 640w, img/cc-chamossaire-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Alpine pastures below Le Chamossaire" loading="lazy"><div><span class="tag">Play</span><h3>Golf at altitude</h3><p>Villars golf course, an 18-hole mountain course, is 7 km away. The village sports centre has tennis, a pool and an ice rink.</p></div></article>
         <article class="act reveal"><img src="img/ih-pool-2-640.webp" srcset="img/ih-pool-2-640.webp 640w, img/ih-pool-2-1600.webp 1600w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Heated indoor pool in Le Bristol" loading="lazy"><div><span class="tag">Relax</span><h3>Pools &amp; thermal baths</h3><p>The heated pool is downstairs. For a treat, the Lavey thermal baths in the Rhône valley are about 25 minutes' drive, and the village sports centre has a spa.</p></div></article>
-        <article class="act reveal"><img src="img/cc-salt-mines-640.webp" srcset="img/cc-salt-mines-640.webp 640w, img/cc-salt-mines-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Lit tunnel inside the Bex salt mines" loading="lazy"><div><span class="tag">Day trip</span><h3>Bex salt mines</h3><p>Ride a small train deep into a working salt mine, a hit with children. About 20 minutes' drive down to Bex; tours take about 2 hours, so book online.</p></div></article>
+        <article class="act reveal"><img src="img/cc-salt-mines-640.webp" srcset="img/cc-salt-mines-640.webp 640w, img/cc-salt-mines-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Lit tunnel inside the Bex salt mines" loading="lazy"><div><span class="tag">Day trip</span><h3>Bex salt mines</h3><p>Ride a small train deep into a working salt mine, a hit with children. About 20 minutes' drive down to Bex; tours take about 2 hours, so book online.</p><a class="watch" href="https://www.youtube.com/watch?v=Cw825Yp_uSU" target="_blank" rel="noopener">▶ Watch: inside the salt mines</a></div></article>
         <article class="act reveal"><img src="img/cc-chillon-640.webp" srcset="img/cc-chillon-640.webp 640w, img/cc-chillon-1200.webp 1200w" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" alt="Château de Chillon on Lake Geneva with the Dents du Midi at dusk" loading="lazy"><div><span class="tag">Day trip</span><h3>Lake Geneva &amp; Chillon</h3><p>Montreux and Château de Chillon on the lake are about 40 minutes away. Swim, take a paddle steamer, and be back for sunset on the balcony.</p></div></article>
       </div>
 
-      <div id="videos-winter" class="videos" data-show="winter"></div>
-      <div id="videos-summer" class="videos" data-show="summer"></div>
+      <div class="film reveal" id="film">
+        <img class="poster" data-show="winter" src="img/ih-village-aerial-winter-1600.webp" alt="Aerial view of Villars in winter" loading="lazy">
+        <img class="poster" data-show="summer" src="img/ih-village-summer-1600.webp" alt="Villars and the Alps in summer" loading="lazy">
+        <div class="film-frame" aria-hidden="true"></div>
+        <div class="film-cap"><span data-show="winter">Villars from above</span><span data-show="summer">Summer in Villars</span><a id="film-link" href="#" target="_blank" rel="noopener">Watch with sound on YouTube →</a></div>
+      </div>
     </div>
   </section>
 
@@ -418,6 +433,7 @@
         <div><dt>Kitchenette</dt><dd>Two hot plates, microwave, fridge, kettle, toaster, raclette grill and fondue set</dd></div>
         <div><dt>Building</dt><dd>4th floor with lift, heated indoor pool, ski room, washing machine &amp; dryer (paid)</dd></div>
         <div><dt>Also</dt><dd>Free Wi-Fi, non-smoking, one dog welcome</dd></div>
+        <div><dt>Keys &amp; help</dt><dd>Interhome has a staffed office in Villars on Avenue Centrale, the same road as the flat, for keys and anything you need during your stay</dd></div>
         <div><dt>Check-in</dt><dd>16:00–18:00 · check-out by 10:00</dd></div>
       </dl>
     </div>
@@ -428,7 +444,7 @@
     <div class="wrap reveal">
       <p class="kicker" style="justify-content:center">Le Bristol A46</p>
       <h2>Find <em>your</em> dates</h2>
-      <p>Bookings are handled securely by Interhome, who look after key collection and cleaning.</p>
+      <p>Bookings are handled securely by Interhome. Their local office in Villars looks after keys, cleaning and help during your stay.</p>
       <a class="btn" href="https://myrent.interhome.com/en/CH1884.783.20/" rel="noopener">Check dates &amp; book <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
     </div>
   </section>
@@ -474,15 +490,15 @@
   btns.forEach(b=>b.addEventListener('click',()=>setSeason(b.dataset.set,true)));
   setSeason(document.body.dataset.season,false);
 
-  // videos (click-to-load, no YouTube until clicked)
-  const VIDEOS={
-    winter:[{id:'CbQDWwzwPjw',title:'The Villars–Gryon–Diablerets ski area'},{id:'2sjo3N2Ron0',title:'Family skiing in Villars'}],
-    summer:[{id:'Cw825Yp_uSU',title:'Inside the Bex salt mines'},{id:'xYDu4DZP07M',title:'Glacier 3000 and the Peak Walk'}]};
-  for(const [season,list] of Object.entries(VIDEOS)){const box=document.getElementById('videos-'+season);if(!box)continue;
-    list.forEach(v=>{const d=document.createElement('div');d.className='video';d.setAttribute('role','button');d.tabIndex=0;d.setAttribute('aria-label','Play video: '+v.title);
-      d.innerHTML=`<img src="https://i.ytimg.com/vi/${v.id}/hqdefault.jpg" alt="" loading="lazy"><i></i><span>${v.title}</span>`;
-      const play=()=>{d.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=1&rel=0" title="${v.title}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`};
-      d.addEventListener('click',play,{once:true});d.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}});box.appendChild(d)})}
+  // background film: muted autoplay YouTube, loaded when near view; poster + link where embeds aren't possible
+  const FILMS={winter:'CbQDWwzwPjw',summer:'GGCYBo5ZmKw'};
+  const film=document.getElementById('film'),frame=film.querySelector('.film-frame'),flink=document.getElementById('film-link');
+  const noMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;let filmOn=false;
+  const loadFilm=()=>{const id=FILMS[document.body.dataset.season];flink.href='https://www.youtube.com/watch?v='+id;
+    if(!filmOn||noMotion||window.NO_EMBED){frame.innerHTML='';return}
+    frame.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" title="Villars from above" allow="autoplay; encrypted-media" tabindex="-1"></iframe>`};
+  new IntersectionObserver(es=>{if(es[0].isIntersecting&&!filmOn){filmOn=true;loadFilm()}},{rootMargin:'300px'}).observe(film);
+  btns.forEach(b=>b.addEventListener('click',loadFilm));loadFilm();
 </script>
 </body>
 </html>
