@@ -76,7 +76,9 @@
   .hero .lede{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:44ch;opacity:.92;margin:0 0 34px}
   .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
   .hero .kicker{color:var(--gold-soft)}
-  .hero h1,.hero .lede,.hero .kicker{text-shadow:0 2px 24px rgba(0,0,0,.55)}
+  .hero h1,.hero .lede,.hero .kicker{text-shadow:0 1px 3px rgba(0,0,0,.6),0 2px 24px rgba(0,0,0,.6)}
+  [data-season="winter"] .hero::after{background:linear-gradient(90deg,rgba(10,18,13,.72) 0%,rgba(10,18,13,.5) 45%,rgba(10,18,13,.15) 100%),linear-gradient(180deg,rgba(10,18,13,.45) 0%,rgba(10,18,13,.1) 30%,rgba(10,18,13,.88) 100%)}
+  [dir="rtl"][data-season="winter"] .hero::after{background:linear-gradient(270deg,rgba(10,18,13,.72) 0%,rgba(10,18,13,.5) 45%,rgba(10,18,13,.15) 100%),linear-gradient(180deg,rgba(10,18,13,.45) 0%,rgba(10,18,13,.1) 30%,rgba(10,18,13,.88) 100%)}
   .hero h1 em{color:var(--gold-soft)}
   .scroll-cue{position:absolute;left:50%;bottom:26px;z-index:1;width:1px;height:46px;background:linear-gradient(rgba(255,255,255,0),#fff);animation:cue 2.2s ease-in-out infinite}
   @keyframes cue{0%,100%{opacity:.2;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
