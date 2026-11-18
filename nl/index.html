@@ -19,11 +19,15 @@
 <style>
   :root{
     --bg:#f6f1e9; --paper:#fffdf9; --ink:#1b211d; --muted:#5f665f;
-    --pine:#16241c; --pine-2:#22382b; --gold:#c49a5a; --gold-soft:#e8d6b5;
+    --pine:#16241c; --pine-2:#22382b; --gold:#c49a5a; --gold-soft:#e8d6b5; --gold-dark:#866632; --gold-mid:#a07c3f;
     --line:rgba(27,33,29,.12); --radius:18px; --max:1180px;
     --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,sans-serif;
   }
   *{box-sizing:border-box}
+  .skip{position:absolute;top:-200px;left:16px;z-index:200;background:var(--gold);color:var(--pine);font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px}
+  .skip:focus{top:16px;outline:3px solid var(--pine);outline-offset:3px}
+  main:focus{outline:0}
+  [dir="rtl"] .skip{left:auto;right:16px}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%;height:auto}
@@ -31,14 +35,16 @@
   .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.05;margin:0 0 .4em;letter-spacing:-.01em}
   h2{font-size:clamp(2.3rem,5vw,3.6rem)}
-  h2 em,h1 em{font-style:italic;color:var(--gold)}
-  .kicker{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+  h2 em,h1 em{font-style:italic;color:var(--gold-mid)}
+  .schools h2 em,.cta h2 em{color:var(--gold)}
+  .kicker{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--gold-dark);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+  .schools .kicker,.cta .kicker{color:var(--gold)}
   .kicker::before{content:"";width:32px;height:1px;background:currentColor}
   section{padding:120px 0}
 
   .btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--pine);text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.02em;padding:16px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s,background .2s}
   .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(196,154,90,.35)}
-  .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+  .btn:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px var(--pine)}
   .btn svg{width:16px;height:16px;transition:transform .2s}
   .btn:hover svg{transform:translateX(3px)}
   .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5)}
@@ -63,7 +69,9 @@
   .hero .lede{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:44ch;opacity:.92;margin:0 0 34px}
   .hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
   .hero .kicker{color:var(--gold-soft)}
-  .hero h1,.hero .lede,.hero .kicker{text-shadow:0 2px 24px rgba(0,0,0,.55)}
+  .hero h1,.hero .lede,.hero .kicker{text-shadow:0 1px 3px rgba(0,0,0,.6),0 2px 24px rgba(0,0,0,.6)}
+  [data-season="winter"] .hero::after{background:linear-gradient(90deg,rgba(10,18,13,.72) 0%,rgba(10,18,13,.5) 45%,rgba(10,18,13,.15) 100%),linear-gradient(180deg,rgba(10,18,13,.45) 0%,rgba(10,18,13,.1) 30%,rgba(10,18,13,.88) 100%)}
+  [dir="rtl"][data-season="winter"] .hero::after{background:linear-gradient(270deg,rgba(10,18,13,.72) 0%,rgba(10,18,13,.5) 45%,rgba(10,18,13,.15) 100%),linear-gradient(180deg,rgba(10,18,13,.45) 0%,rgba(10,18,13,.1) 30%,rgba(10,18,13,.88) 100%)}
   .hero h1 em{color:var(--gold-soft)}
   .scroll-cue{position:absolute;left:50%;bottom:26px;z-index:1;width:1px;height:46px;background:linear-gradient(rgba(255,255,255,0),#fff);animation:cue 2.2s ease-in-out infinite}
   @keyframes cue{0%,100%{opacity:.2;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
@@ -116,13 +124,14 @@
   /* panorama band */
   .band{position:relative;height:72vh;min-height:420px;overflow:hidden}
   .band img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;will-change:transform}
-  .band .quote{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:rgba(10,18,13,.32);padding:24px}
-  .band blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(2rem,5vw,3.6rem);margin:0;max-width:18ch;line-height:1.1}
+  .band .quote{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:radial-gradient(ellipse 55% 80% at 50% 50%,rgba(10,18,13,.74),rgba(10,18,13,.4) 100%);padding:24px}
+  [data-season="winter"] .band .quote{background:radial-gradient(ellipse 55% 80% at 50% 50%,rgba(10,18,13,.82),rgba(10,18,13,.5) 100%)}
+  .band blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(2rem,5vw,3.6rem);margin:0;max-width:18ch;line-height:1.1;text-shadow:0 1px 3px rgba(0,0,0,.6),0 2px 24px rgba(0,0,0,.6)}
 
   /* gallery */
   .gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:14px;margin-top:48px}
   .gallery button{all:unset;cursor:zoom-in;border-radius:14px;overflow:hidden;position:relative}
-  .gallery button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  .gallery button:focus-visible{outline:3px solid var(--pine);outline-offset:3px}
   .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
   .gallery button:hover img{transform:scale(1.06)}
   .gallery .i1{grid-column:span 7;grid-row:span 4}
@@ -140,6 +149,7 @@
   .lb button{position:absolute;background:rgba(255,255,255,.1);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer}
   .lb .x{top:20px;right:20px}.lb .p{left:20px}.lb .nx{right:20px}
   .lb button:hover{background:rgba(255,255,255,.2)}
+  .lb button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 
   /* seasons */
   .seasons{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
@@ -247,7 +257,7 @@
   .act .watch:hover{color:var(--gold)}
   .act h3{font-size:1.5rem;margin:0 0 6px}
   .act p{margin:0;color:var(--muted);font-size:.93rem}
-  .act .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:8px}
+  .act .tag{display:inline-block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold-dark);margin-bottom:8px}
   .film{position:relative;margin-top:40px;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;max-height:78vh;width:100%;background:var(--pine)}
   .film .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .film-frame{position:absolute;inset:0;pointer-events:none}
@@ -285,9 +295,10 @@
     if(s!=='summer'&&s!=='winter'){var m=new Date().getMonth();s=(m>=9||m<=3)?'winter':'summer'}
     document.body.dataset.season=s})();
 </script>
+<a class="skip" href="#main">Naar de inhoud</a>
 <nav class="nav" id="nav">
 <div class="wrap">
-<a class="brand" href="#top">Le Bristol<small>Villars</small></a>
+<a class="brand" href="#top">Le Bristol <small>Villars</small></a>
 <div class="nav-right">
 <div aria-label="Seizoen" class="toggle" role="group">
 <button aria-pressed="false" data-set="summer" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><span class="lbl">Zomer</span></button>
@@ -323,7 +334,7 @@
 </ul>
 </div>
 </div>
-<main>
+<main id="main" tabindex="-1">
 <section>
 <div class="wrap intro">
 <div class="stack reveal">
@@ -350,7 +361,7 @@
 </div>
 </div>
 </section>
-<div aria-hidden="false" class="band">
+<div class="band">
 <img alt="Het dorp Villars en de Alpen in de zomer" data-show="summer" id="parallax" loading="lazy" src="../img/ih-village-summer-1600.webp"/>
 <img alt="Villars onder verse sneeuw" class="parallax-w" data-show="winter" loading="lazy" src="../img/ih-view-winter-2-1600.webp"/>
 <div class="quote"><blockquote class="reveal">‘Ruim appartement, prachtig uitzicht over Villars en de bergen.’<cite style="display:block;font:500 .8rem/1.4 var(--sans);font-style:normal;letter-spacing:.18em;text-transform:uppercase;margin-top:20px;opacity:.8">Gastrecensie, vertaald uit het Frans</cite></blockquote></div>
@@ -390,22 +401,22 @@
 <img alt="Luchtfoto van Villars in de winter" class="poster" data-show="winter" loading="lazy" src="../img/ih-village-aerial-winter-1600.webp"/>
 <img alt="Villars en de Alpen in de zomer" class="poster" data-show="summer" loading="lazy" src="../img/ih-village-summer-1600.webp"/>
 <div aria-hidden="true" class="film-frame"></div>
-<div class="film-cap"><span data-show="winter">Villars van bovenaf</span><span data-show="summer">Zomer in Villars</span><a href="#" id="film-link" rel="noopener" target="_blank">Bekijk met geluid op YouTube →</a></div>
+<div class="film-cap"><span data-show="winter" id="film-w">Villars van bovenaf</span><span data-show="summer" id="film-s">Zomer in Villars</span><a aria-describedby="film-s new-tab" href="https://www.youtube.com/watch?v=GGCYBo5ZmKw" id="film-link" rel="noopener" target="_blank">Bekijk met geluid op YouTube →</a></div>
 </div>
 <div class="acts" data-show="winter">
-<article class="act reveal"><img alt="Zonnige pistes in het skigebied Villars–Gryon" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-bretaye-pistes-640.webp" srcset="../img/ih-bretaye-pistes-640.webp 640w, ../img/ih-bretaye-pistes-1600.webp 1600w"/><div><span class="tag">Skiën</span><h3>Ruim 100 km pistes</h3><p>Villars–Gryon–Les Diablerets verbindt brede blauwe en rode pistes met uitzicht op de Mont Blanc. De gratis skibus stopt op 20 m van het gebouw.</p><a class="watch" href="https://www.youtube.com/watch?v=CbQDWwzwPjw" rel="noopener" target="_blank">▶ Bekijk de film over het skigebied</a></div></article>
+<article class="act reveal"><img alt="Zonnige pistes in het skigebied Villars–Gryon" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-bretaye-pistes-640.webp" srcset="../img/ih-bretaye-pistes-640.webp 640w, ../img/ih-bretaye-pistes-1600.webp 1600w"/><div><span class="tag">Skiën</span><h3>Ruim 100 km pistes</h3><p>Villars–Gryon–Les Diablerets verbindt brede blauwe en rode pistes met uitzicht op de Mont Blanc. De gratis skibus stopt op 20 m van het gebouw.</p><a aria-describedby="new-tab" class="watch" href="https://www.youtube.com/watch?v=CbQDWwzwPjw" rel="noopener" target="_blank">▶ Bekijk de film over het skigebied</a></div></article>
 <article class="act reveal"><img alt="Het rode bergtreintje op de Col de Bretaye in het skiseizoen" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-bvb-winter-640.webp" srcset="../img/cc-bvb-winter-640.webp 640w, ../img/cc-bvb-winter-1200.webp 1200w"/><div><span class="tag">Naar boven</span><h3>Het treintje naar Bretaye</h3><p>Het tandradtreintje vertrekt vanaf station Villars, op 500 m van het appartement, en klimt rechtstreeks naar de Col de Bretaye, midden in het skigebied. Gratis met een geldige skipas.</p></div></article>
-<article class="act reveal"><img alt="Gondelstation Roc d'Orsay in Villars" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-roc-dorsay-640.webp" srcset="../img/ih-roc-dorsay-640.webp 640w, ../img/ih-roc-dorsay-1600.webp 1600w"/><div><span class="tag">Naar boven</span><h3>Gondel naar Roc d'Orsay</h3><p>Of neem de gondel vanuit het dorp naar Roc d'Orsay. Lockers, skiverhuur en skischolen voor kinderen vanaf 3 jaar zijn allemaal vlakbij.</p><a class="watch" href="https://www.youtube.com/watch?v=2sjo3N2Ron0" rel="noopener" target="_blank">▶ Bekijk: skiën met het gezin in Villars</a></div></article>
+<article class="act reveal"><img alt="Gondelstation Roc d'Orsay in Villars" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-roc-dorsay-640.webp" srcset="../img/ih-roc-dorsay-640.webp 640w, ../img/ih-roc-dorsay-1600.webp 1600w"/><div><span class="tag">Naar boven</span><h3>Gondel naar Roc d'Orsay</h3><p>Of neem de gondel vanuit het dorp naar Roc d'Orsay. Lockers, skiverhuur en skischolen voor kinderen vanaf 3 jaar zijn allemaal vlakbij.</p><a aria-describedby="new-tab" class="watch" href="https://www.youtube.com/watch?v=2sjo3N2Ron0" rel="noopener" target="_blank">▶ Bekijk: skiën met het gezin in Villars</a></div></article>
 <article class="act reveal"><img alt="Voetsporen in verse sneeuw tussen sparren" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-snow-trail-640.webp" srcset="../img/ih-snow-trail-640.webp 640w, ../img/ih-snow-trail-1600.webp 1600w"/><div><span class="tag">Geen skiër?</span><h3>Winterwandelingen &amp; sneeuwschoenen</h3><p>Geprepareerde winterwandelpaden en sneeuwschoenroutes beginnen in het dorp en bij Bretaye. Ook sleeën en schaatsen op de ijsbaan.</p></div></article>
 <article class="act reveal"><img alt="Verwarmd binnenzwembad in Le Bristol" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-pool-2-640.webp" srcset="../img/ih-pool-2-640.webp 640w, ../img/ih-pool-2-1600.webp 1600w"/><div><span class="tag">Après-ski</span><h3>Zwembad beneden</h3><p>Terug van de piste zet je je ski's in de skiruimte en duik je het verwarmde binnenzwembad in het gebouw in. Daarna fondue op het balkon.</p></div></article>
-<article class="act reveal"><img alt="Kabelbaan van Glacier 3000 en de besneeuwde toppen van de Diablerets" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-glacier-summer-640.webp" srcset="../img/cc-glacier-summer-640.webp 640w, ../img/cc-glacier-summer-1200.webp 1200w"/><div><span class="tag">Dagtrip</span><h3>Glacier 3000</h3><p>Ongeveer 40 minuten rijden via Les Diablerets: een kabelbaan naar de gletsjer, de hangbrug Peak Walk en skiën op 3000 m.</p><a class="watch" href="https://www.youtube.com/watch?v=xYDu4DZP07M" rel="noopener" target="_blank">▶ Bekijk: Glacier 3000</a></div></article>
+<article class="act reveal"><img alt="Kabelbaan van Glacier 3000 en de besneeuwde toppen van de Diablerets" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-glacier-summer-640.webp" srcset="../img/cc-glacier-summer-640.webp 640w, ../img/cc-glacier-summer-1200.webp 1200w"/><div><span class="tag">Dagtrip</span><h3>Glacier 3000</h3><p>Ongeveer 40 minuten rijden via Les Diablerets: een kabelbaan naar de gletsjer, de hangbrug Peak Walk en skiën op 3000 m.</p><a aria-describedby="new-tab" class="watch" href="https://www.youtube.com/watch?v=xYDu4DZP07M" rel="noopener" target="_blank">▶ Bekijk: Glacier 3000</a></div></article>
 </div>
 <div class="acts" data-show="summer">
-<article class="act reveal"><img alt="Lac des Chavonnes boven Bretaye in de zomer" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chavonnes-640.webp" srcset="../img/cc-chavonnes-640.webp 640w, ../img/cc-chavonnes-1200.webp 1200w"/><div><span class="tag">Wandelen</span><h3>De meren van Bretaye</h3><p>Neem het treintje vanaf station Villars naar de Col de Bretaye en wandel rond het Lac de Bretaye en het Lac Noir, of loop 30–40 minuten door naar het Lac des Chavonnes met zijn restaurant en terras aan het water.</p><a class="watch" href="https://www.youtube.com/watch?v=JS_MMCxdb_E" rel="noopener" target="_blank">▶ Bekijk: de merenwandeling bij Bretaye</a></div></article>
+<article class="act reveal"><img alt="Lac des Chavonnes boven Bretaye in de zomer" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chavonnes-640.webp" srcset="../img/cc-chavonnes-640.webp 640w, ../img/cc-chavonnes-1200.webp 1200w"/><div><span class="tag">Wandelen</span><h3>De meren van Bretaye</h3><p>Neem het treintje vanaf station Villars naar de Col de Bretaye en wandel rond het Lac de Bretaye en het Lac Noir, of loop 30–40 minuten door naar het Lac des Chavonnes met zijn restaurant en terras aan het water.</p><a aria-describedby="new-tab" class="watch" href="https://www.youtube.com/watch?v=JS_MMCxdb_E" rel="noopener" target="_blank">▶ Bekijk: de merenwandeling bij Bretaye</a></div></article>
 <article class="act reveal"><img alt="Pad door alpenweiden bij de Col de Bretaye" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-bikers-640.webp" srcset="../img/cc-bikers-640.webp 640w, ../img/cc-bikers-1200.webp 1200w"/><div><span class="tag">Wandelen</span><h3>Routes voor elk niveau</h3><p>Gezinswandelingen door de lariksbossen, de Edelweiss Trail of de klim naar Le Chamossaire voor het panorama. Fietsen mogen mee in de trein naar Bretaye en zijn in het dorp te huur.</p></div></article>
 <article class="act reveal"><img alt="Alpenweiden onder Le Chamossaire" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chamossaire-640.webp" srcset="../img/cc-chamossaire-640.webp 640w, ../img/cc-chamossaire-1200.webp 1200w"/><div><span class="tag">Sport</span><h3>Golf op hoogte</h3><p>De golfbaan van Villars, een 18-holes bergbaan, ligt op 7 km. Het sportcentrum in het dorp heeft tennis, een zwembad en een ijsbaan.</p></div></article>
 <article class="act reveal"><img alt="Verwarmd binnenzwembad in Le Bristol" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/ih-pool-2-640.webp" srcset="../img/ih-pool-2-640.webp 640w, ../img/ih-pool-2-1600.webp 1600w"/><div><span class="tag">Ontspannen</span><h3>Zwembaden &amp; thermen</h3><p>Het verwarmde zwembad is beneden. Voor een uitje liggen de thermale baden van Lavey in het Rhônedal op zo'n 25 minuten rijden, en het sportcentrum in het dorp heeft een spa.</p></div></article>
-<article class="act reveal"><img alt="Verlichte tunnel in de zoutmijnen van Bex" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-salt-mines-640.webp" srcset="../img/cc-salt-mines-640.webp 640w, ../img/cc-salt-mines-1200.webp 1200w"/><div><span class="tag">Dagtrip</span><h3>Zoutmijnen van Bex</h3><p>Rijd met een treintje diep een zoutmijn in die nog in bedrijf is: een hit bij kinderen. Ongeveer 20 minuten rijden naar beneden, naar Bex; rondleidingen duren zo'n 2 uur, dus boek online.</p><a class="watch" href="https://www.youtube.com/watch?v=Cw825Yp_uSU" rel="noopener" target="_blank">▶ Bekijk: in de zoutmijnen</a></div></article>
+<article class="act reveal"><img alt="Verlichte tunnel in de zoutmijnen van Bex" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-salt-mines-640.webp" srcset="../img/cc-salt-mines-640.webp 640w, ../img/cc-salt-mines-1200.webp 1200w"/><div><span class="tag">Dagtrip</span><h3>Zoutmijnen van Bex</h3><p>Rijd met een treintje diep een zoutmijn in die nog in bedrijf is: een hit bij kinderen. Ongeveer 20 minuten rijden naar beneden, naar Bex; rondleidingen duren zo'n 2 uur, dus boek online.</p><a aria-describedby="new-tab" class="watch" href="https://www.youtube.com/watch?v=Cw825Yp_uSU" rel="noopener" target="_blank">▶ Bekijk: in de zoutmijnen</a></div></article>
 <article class="act reveal"><img alt="Château de Chillon aan het Meer van Genève met de Dents du Midi in de schemering" loading="lazy" sizes="(max-width:560px) 92vw, (max-width:900px) 46vw, 380px" src="../img/cc-chillon-640.webp" srcset="../img/cc-chillon-640.webp 640w, ../img/cc-chillon-1200.webp 1200w"/><div><span class="tag">Dagtrip</span><h3>Meer van Genève &amp; Chillon</h3><p>Montreux en het Château de Chillon aan het meer liggen op zo'n 40 minuten. Ga zwemmen, maak een tocht met een raderstoomboot en ben terug voor de zonsondergang op het balkon.</p></div></article>
 </div>
 </div>
@@ -449,6 +460,7 @@
 <a href="aiglon-college-accommodation.html" style="color:rgba(255,255,255,.85)">Accommodatie bij Aiglon College</a> · <a href="beau-soleil-accommodation.html" style="color:rgba(255,255,255,.85)">Accommodatie bij Beau Soleil</a><br/>Een particulier appartement. Niet verbonden aan een school.<br/>
 <span style="opacity:.75">Foto's: Interhome; de eigenaren; en via Wikimedia Commons, verkleind: <a href="https://commons.wikimedia.org/wiki/File:Col-de-Bretaye_Le_Chamossaire.jpg">Whgler</a>, <a href="https://commons.wikimedia.org/wiki/File:04.02.19_Col-de-Bretaye_TPC_BDeh_4_4_83_(40065432863).jpg">Phil Richards</a> (CC BY-SA 2.0), <a href="https://commons.wikimedia.org/wiki/File:Cable_car_to_Glacier-des-Diablerets,_Ormont-Dessus,_Switzerland.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:Mountain_bikers_on_a_trail_near_Col_de_Bretaye,_Villars-sur-Ollon,_Ollon,_Vaud.jpg">Christian David</a>, <a href="https://commons.wikimedia.org/wiki/File:20260916-Bretaye-12-lac_Chavonnes.jpg">MHM55</a>, <a href="https://commons.wikimedia.org/wiki/File:Mines_de_Sel,_Bex,_Switzerland.jpg">Souvaroff</a>, <a href="https://commons.wikimedia.org/wiki/File:001_Chateau_de_Chillon_and_Dents_du_Midi_Photo_by_Giles_Laurent.jpg">Giles Laurent</a> (alle <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> tenzij anders vermeld). Video's: hun YouTube-kanalen.</span>
 </footer>
+<span hidden="" id="new-tab">Opent in een nieuw tabblad</span>
 <div class="bookbar" id="bookbar"><a class="btn" href="https://myrent.interhome.com/nl/CH1884.783.20/" rel="noopener">Data bekijken &amp; boeken</a></div>
 <div aria-label="Fotoviewer" aria-modal="true" class="lb" id="lb" role="dialog">
 <button aria-label="Sluiten" class="x">×</button>
@@ -471,7 +483,9 @@
   const close=()=>{lb.classList.remove('open');last&&last.focus()};
   lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=()=>show(idx-1);lb.querySelector('.nx').onclick=()=>show(idx+1);
   lb.addEventListener('click',e=>{if(e.target===lb)close()});
-  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1)});
+  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(idx-1);if(e.key==='ArrowRight')show(idx+1);
+    if(e.key==='Tab'){const f=[...lb.querySelectorAll('button')],a=document.activeElement,first=f[0],end=f[f.length-1];
+      if(!lb.contains(a)||(!e.shiftKey&&a===end)){e.preventDefault();first.focus()}else if(e.shiftKey&&a===first){e.preventDefault();end.focus()}}});
   // season toggle
   const btns=[...document.querySelectorAll('.toggle button')];
   const setSeason=(s,save)=>{document.body.dataset.season=s;btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===s));
@@ -487,7 +501,7 @@
   const FILMS={winter:'CbQDWwzwPjw',summer:'GGCYBo5ZmKw'};
   const film=document.getElementById('film'),frame=film.querySelector('.film-frame'),flink=document.getElementById('film-link');
   const noMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;let filmOn=false;
-  const loadFilm=()=>{const id=FILMS[document.body.dataset.season];flink.href='https://www.youtube.com/watch?v='+id;
+  const loadFilm=()=>{const s=document.body.dataset.season,id=FILMS[s];flink.href='https://www.youtube.com/watch?v='+id;flink.setAttribute('aria-describedby',(s==='winter'?'film-w':'film-s')+' new-tab');
     if(!filmOn||noMotion||window.NO_EMBED){frame.innerHTML='';return}
     frame.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&playsinline=1&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" title="Villars from above" allow="autoplay; encrypted-media" tabindex="-1"></iframe>`};
   new IntersectionObserver(es=>{if(es[0].isIntersecting&&!filmOn){filmOn=true;loadFilm()}},{rootMargin:'300px'}).observe(film);

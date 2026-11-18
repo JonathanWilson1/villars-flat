@@ -5,6 +5,10 @@
   --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,sans-serif;
 }
 *{box-sizing:border-box}
+.skip{position:absolute;top:-200px;left:16px;z-index:200;background:var(--gold);color:var(--pine);font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px}
+.skip:focus{top:16px;outline:3px solid var(--pine);outline-offset:3px}
+main:focus{outline:0}
+[dir="rtl"] .skip{left:auto;right:16px}
 body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
 img{display:block;max-width:100%;height:auto}
 a{color:var(--pine)}
@@ -24,10 +28,10 @@ p,li{color:#2f3630}
 
 .hero{position:relative;color:#fff;min-height:58vh;display:flex;align-items:flex-end;overflow:hidden}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,13,.25),rgba(10,18,13,.9))}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,13,.5) 0%,rgba(10,18,13,.78) 45%,rgba(10,18,13,.95) 100%)}
 .hero .wrap{position:relative;z-index:1;padding-bottom:56px;padding-top:120px}
-.hero p.lede{font-size:1.15rem;opacity:.92;max-width:46ch;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.5)}
-.hero h1{text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.hero p.lede{color:#fff;font-size:1.15rem;opacity:.95;max-width:46ch;margin:0;text-shadow:0 1px 4px rgba(0,0,0,.7),0 2px 18px rgba(0,0,0,.6)}
+.hero h1,.hero .kicker{text-shadow:0 1px 4px rgba(0,0,0,.7),0 2px 24px rgba(0,0,0,.6)}
 
 article{padding:56px 0 24px}
 article ul{padding-left:1.2em}
@@ -37,6 +41,7 @@ article li{margin:.35em 0}
 
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--pine);text-decoration:none;font-weight:600;font-size:.95rem;padding:15px 28px;border-radius:999px;transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(196,154,90,.35)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px var(--pine)}
 .top .btn{padding:10px 20px;font-size:.85rem}
 
 .stay{margin:56px 0 72px;background:var(--pine);color:#fff;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
@@ -65,11 +70,12 @@ footer a{color:rgba(255,255,255,.8)}
 article details{border-bottom:1px solid var(--line);padding:16px 0}
 article details:first-of-type{border-top:1px solid var(--line)}
 article summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px}
+article summary h3{font:inherit;letter-spacing:0;margin:0}
 article summary::after{content:"+";color:var(--gold);font-size:1.3rem;line-height:1}
 article details[open] summary::after{content:"–"}
 article summary::-webkit-details-marker{display:none}
 article details p{margin:10px 0 0;color:var(--muted)}
-article summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+article summary:focus-visible{outline:3px solid var(--pine);outline-offset:4px}
 @media (max-width:700px){.occ{grid-template-columns:1fr}.photos{grid-template-columns:1fr 1fr}.photos img:last-child{display:none}}
 
 .top .wrap{gap:12px}
