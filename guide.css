@@ -28,10 +28,10 @@ p,li{color:#2f3630}
 
 .hero{position:relative;color:#fff;min-height:58vh;display:flex;align-items:flex-end;overflow:hidden}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,13,.25),rgba(10,18,13,.9))}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,13,.5) 0%,rgba(10,18,13,.78) 45%,rgba(10,18,13,.95) 100%)}
 .hero .wrap{position:relative;z-index:1;padding-bottom:56px;padding-top:120px}
-.hero p.lede{color:#fff;font-size:1.15rem;opacity:.92;max-width:46ch;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.5)}
-.hero h1{text-shadow:0 2px 24px rgba(0,0,0,.5)}
+.hero p.lede{color:#fff;font-size:1.15rem;opacity:.95;max-width:46ch;margin:0;text-shadow:0 1px 4px rgba(0,0,0,.7),0 2px 18px rgba(0,0,0,.6)}
+.hero h1,.hero .kicker{text-shadow:0 1px 4px rgba(0,0,0,.7),0 2px 24px rgba(0,0,0,.6)}
 
 article{padding:56px 0 24px}
 article ul{padding-left:1.2em}
