@@ -78,22 +78,23 @@ TEMPLATE = """<!doctype html>
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="top"><div class="wrap">
-  <a class="brand" href="./">Le Bristol<small>Villars</small></a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">Le Bristol <small>Villars</small></a>
   <a class="btn" href="{book}" rel="noopener">Check dates</a>
-</div></div>
+</div></header>
 
-<header class="hero">
+<div class="hero">
   <img src="{hero}" alt="{hero_alt}">
   <div class="wrap">
     <p class="kicker">{name} · Villars-sur-Ollon</p>
     <h1>{h1}</h1>
     <p class="lede">{lede}</p>
   </div>
-</header>
+</div>
 
-<main class="wrap">
+<main class="wrap" id="main" tabindex="-1">
 <article>
   <p>Hotels in Villars fill quickly on school weekends, and one room gets small fast with a teenager and their friends. Le Bristol A46 is a one-bedroom apartment for up to 4, with two bathrooms, two balconies, a kitchenette and a heated indoor pool in the building. It's a quiet base where the family can spread out, with Interhome's local Villars office just along the road if you need anything.</p>
 
@@ -136,7 +137,7 @@ TEMPLATE = """<!doctype html>
   <h2>Questions families ask</h2>
   {faq_html}
 
-  <div class="note"><p>See what's on in <a href="./#winter">winter</a> and <a href="./#summer">summer</a> for things to do with your child on a weekend out.</p></div>
+  <div class="note"><p>See <a href="./#winter">what's on in winter</a> and <a href="./#summer">what's on in summer</a> for things to do with your child on a weekend out.</p></div>
 
   <p class="more">Le Bristol A46 is a privately owned apartment, let through Interhome. We are not connected with {name}. Distances and travel times are approximate, so check timetables and the school's calendar before you travel.</p>
 </article>
@@ -159,7 +160,7 @@ for i, s in enumerate(SCHOOLS):
         {"@type": "ListItem", "position": 2, "name": f"{s['name']} accommodation"}]},
     ]
     occ = "\n    ".join(f'<div><h3>{t}</h3><p>{d}</p></div>' for t, d in s["occasions"])
-    faq = "\n  ".join(f'<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>' for q, a in s["faqs"])
+    faq = "\n  ".join(f'<details><summary><h3>{html.escape(q)}</h3></summary><p>{html.escape(a)}</p></details>' for q, a in s["faqs"])
     out = TEMPLATE.format(ld=json.dumps(ld, ensure_ascii=False), book=BOOK, occasions=occ, faq_html=faq,
                           other_slug=other["slug"], other_name=other["name"], **{k: v for k, v in s.items() if k not in ("faqs", "occasions")})
     open(f"{s['slug']}.html", "w").write(out)
