@@ -6,6 +6,7 @@ BOOK = "https://myrent.interhome.com/en/CH1884.783.20/"
 SCHOOLS = [
   dict(
     slug="aiglon-college-accommodation",
+    dates="aiglon-term-dates",
     name="Aiglon College",
     short="Aiglon",
     title="Aiglon College accommodation for parents · Le Bristol A46, Villars",
@@ -32,6 +33,7 @@ SCHOOLS = [
   ),
   dict(
     slug="beau-soleil-accommodation",
+    dates="beau-soleil-term-dates",
     name="Beau Soleil",
     short="Beau Soleil",
     title="Beau Soleil accommodation for parents · Le Bristol A46, Villars",
@@ -136,6 +138,8 @@ TEMPLATE = """<!doctype html>
 
   <h2>Questions families ask</h2>
   {faq_html}
+
+  <div class="note"><p>Planning a visit? See the <a href="{dates}.html">{short} term dates for 2026-27 and 2027-28</a>, with the nights parents usually book.</p></div>
 
   <div class="note"><p>See <a href="./#winter">what's on in winter</a> and <a href="./#summer">what's on in summer</a> for things to do with your child on a weekend out.</p></div>
 

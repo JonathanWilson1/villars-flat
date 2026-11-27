@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup, NavigableString, Comment, Doctype
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGES = ["index.html", "aiglon-college-accommodation.html", "beau-soleil-accommodation.html"]
+EN_ONLY = ["aiglon-term-dates.html", "beau-soleil-term-dates.html"]  # from tools/term_dates.py; not translated
 LANGS = {  # code: (native name, dir)
     "en": ("English", "ltr"), "fr": ("Français", "ltr"), "de": ("Deutsch", "ltr"), "it": ("Italiano", "ltr"),
     "es": ("Español", "ltr"), "pt": ("Português", "ltr"), "nl": ("Nederlands", "ltr"), "ar": ("العربية", "rtl"),
@@ -168,7 +169,7 @@ def render():
                     v = t.get(a)
                     if not v: continue
                     if a == "srcset": t[a] = re.sub(r"(^|,\s*)(img/)", r"\1../img/", v); continue
-                    if v.startswith(("img/", "guide.css", "favicon.svg")): t[a] = "../" + v
+                    if v.startswith(("img/", "guide.css", "favicon.svg")) or v in EN_ONLY: t[a] = "../" + v
                     elif v == BOOK: t[a] = BOOK.replace("/en/", f"/{lang}/")
             for m in soup.find_all("meta", property="og:image"):
                 if not m["content"].startswith("http"): m["content"] = "../" + m["content"]
@@ -176,7 +177,7 @@ def render():
             open(os.path.join(ROOT, lang, page), "w", encoding="utf-8").write(str(soup))
         print(f"{lang}: rendered, {miss} untranslated strings fell back to English")
     urls = [f"{DOMAIN}/{'' if l == 'en' else l + '/'}{'' if p == 'index.html' else p}" for l in LANGS for p in PAGES
-            if l == "en" or os.path.exists(os.path.join(ROOT, l, p))]
+            if l == "en" or os.path.exists(os.path.join(ROOT, l, p))] + [f"{DOMAIN}/{p}" for p in EN_ONLY]
     open(os.path.join(ROOT, "sitemap.xml"), "w").write(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         + "".join(f"  <url><loc>{u}</loc></url>\n" for u in urls) + "</urlset>\n")
